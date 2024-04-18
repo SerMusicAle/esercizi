@@ -20,5 +20,16 @@ print (messaggio)
 ex. 2-4. Name Cases: Use a variable to represent a person’s name, and then print that person’s name in 
 lowercase, uppercase, and title case.
 """
+#la variabile nome viene modificata nei 3 stili
+#metodo1
 print (name.upper(), name.lower(), name.title())
+
+#metodo2
+print (f"{name}, {name.upper()}, {name.lower()}")
+
+#metodo3
+name_lower: str =name.lower()
+name_upper: str = name.upper()
+print (f"{name}, {name.upper()}, {name.lower()}")
+
 
