@@ -33,3 +33,32 @@ name_upper: str = name.upper()
 print (f"{name}, {name.upper()}, {name.lower()}")
 
 
+"""
+ex. 2-5. Famous Quote: Find a quote from a famous person you admire. 
+Print the quote and the name of its author. Your output should look something like the following, 
+including the quotation marks: Albert Einstein once said, “A person who never made a mistake 
+never tried anything new.”
+"""
+#elementi citazioni del dizionario
+vip_q: dict = {'Einstein':'la vita è come una bicicletta', 'Mandela':'La istruzione è arma più potente', 'Jobs':'Stay hungry, stay foolish'}
+
+#faccio inserire dall'utente il vip
+print ('chi preferisci tra Einstein, Mandela e Jobs?')
+vip: str =  input()
+
+#verifico la corrispondenza e cito il personaggio
+if vip_q[vip]:
+    print(f"{vip} una volta disse:, {vip_q[vip]}")
+
+"""
+2-8. File Extensions: Python has a removesuffix() method that works exactly like removeprefix(). 
+Assign the value 'python_notes.txt' to a variable called filename. Then use the removesuffix() 
+method to display the filename without the file extension, like some file browsers do.
+"""
+
+#creo dizionario con unica chiave valore
+files: dict = {'file1':'python notes.txt'}
+
+print (f"{files}")
+
+
