@@ -5,12 +5,12 @@
 
 #FUNCTION
 
-""" non funziona i'importazione dal file
+""" voelvo fare la lunghezza di places invece che degli invitati ma non funziona i'importazione dal file
 def number_import ():
 
     from L2_3dot8_Travel import places
     lenght = len(places)
-    print(f"La lista 'places' definita in L2_3dot8_Travel.py è: {places}")
+    print(f"La lista 'places' definita in L2_3dot8-9_Seeing the world+Number.py è: {places}")
     print(f"La lunghezza della lista 'places' è: {len(places)}")
 """
 
