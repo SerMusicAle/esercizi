@@ -19,8 +19,6 @@ def one_million ():
 
     for i in million:
         print (i)
-    #RETURN
 
-#INPUT requests
 #CALL FUNCTION
 one_million()
