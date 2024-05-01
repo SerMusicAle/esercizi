@@ -5,7 +5,7 @@
 """
 
 #FUNCTION
-def one_million ():
+def f_one_million ():
 
     #DECLARATION LOCAL VAR
     quantity = int(input(f"quanti numeri devo scrivere? "))
@@ -20,4 +20,4 @@ def one_million ():
     print(f"La somma dei {len(million)} numeri della lita è {million_sum}")
 
 #CALL FUNCTION
-one_million()
+f_one_million()

@@ -7,7 +7,7 @@
 
 
 #FUNCTION
-def one_million ():
+def f_one_million ():
 
     #DECLARATION LOCAL VAR
     quantity = int(input(f"quanti numeri devo scrivere? "))
@@ -21,4 +21,4 @@ def one_million ():
         print (i)
 
 #CALL FUNCTION
-one_million()
+f_one_million()
