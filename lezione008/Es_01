@@ -1,0 +1,73 @@
+"""
+    ENTRO LE 23.59 del 16
+    
+    zoo con recinti e guardiani
+    ogni recinto ha carateristiche, 
+    aria float, 
+    temperatura float
+    habitat stringa
+    animale ha caratteristiche, habitat preferito, stato salute
+    finire alla terza cifra per la salute
+    oggni oggetto fans ha lista di animali che puo contenere
+    i guardiani hanno un nome, surname, id, possono nutrire, pulire e svolgere compiti
+    add_animal inserisce un animale nel recinto che rispetta l'habitat e le necessità come le dimensioni
+        lo spazio deve esser sufficiente
+    remove_animal. se sta nel recinto. si ripristina l'area rimasta
+    il guardiano da da mangiare, la salute aumenta e le dimensioni anche.
+    il guardiano può dare da mangiare all'animale se c'è spazio sufficiente.
+    il guardiano deve pulire, serve del tempo per pulire il recinto calcolando l'area occupata / area rimasta
+    describe_zoo __str__ stampa tutti gli zookeeper, per ogni recinto stampa caratteristiche recinto con tutti gli animali per ogni recinto
+    
+    consegna un file zip (nome e cognome), contenente il file zoo.py
+    compilare come con code runner, senza dati in input
+    describe zoo con un print
+"""
+#CLASS ZOO
+class zoo:
+    
+    #DESCRIBE
+    def describe_zoo():
+        pass
+
+    #INIT
+    def __init__(self, ):
+        pass
+
+#CLASS ANIMAL
+class animal:
+    pass
+
+    #INIT
+    def __init__(self, ):
+        pass
+
+#CLASS FENCE
+class fence:
+    pass
+
+    #INIT
+    def __init__(self, ):
+        pass
+
+#CLASS ZOOKEEPER
+class zookeeper:
+    
+    #INIT
+    def __init__(self, name, ):
+        pass
+
+    #ADD ANIMAL
+    def add_animal():
+        pass
+
+    #REMOVE ANIMAL
+    def remove_animal():
+        pass
+    
+    #SOMETHING TO EAT
+    def feed():
+        pass
+
+    #CLEAN ENCLOSURE
+    def clean():
+        pass
