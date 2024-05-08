@@ -25,12 +25,12 @@
 #CLASS ZOO
 class zoo:
     
-    #DESCRIBE
-    def describe_zoo():
-        pass
-
     #INIT
     def __init__(self, ):
+        pass
+    
+    #DESCRIBE
+    def describe_zoo():
         pass
 
 #CLASS ANIMAL
@@ -38,7 +38,7 @@ class animal:
     pass
 
     #INIT
-    def __init__(self, ):
+    def __init__(self, name, species, age, height, width, preferred_habitat, health):
         pass
 
 #CLASS FENCE
@@ -51,21 +51,22 @@ class fence:
 
 #CLASS ZOOKEEPER
 class zookeeper:
-    
+
+
     #INIT
-    def __init__(self, ):
+    def __init__(self, id, nome, cognome):
         pass
 
     #ADD ANIMAL
-    def add_animal():
+    def add_animal(animal:Animal, fence: Fence):
         pass
 
     #REMOVE ANIMAL
-    def remove_animal():
+    def remove_animal(animal:Animal, fence: Fence):
         pass
     
     #SOMETHING TO EAT
-    def feed():
+    def feed(animal:Animal, fence: Fence):
         pass
 
     #CLEAN ENCLOSURE
