@@ -3,6 +3,7 @@
     
     ZOO
     
+<<<<<<< HEAD:lezione008/Es_01
     RECINTI
     OK area float, 
     OK temperatura float
@@ -39,12 +40,29 @@
     compilare come con code runner, senza dati in input
     describe zoo è l'unico print. gli altri sono tutti controlli
 """
+=======
+    consegna un file zip (nome e cognome), contenente il file zoo.py
+    compilare come con code runner, senza dati in input
+    describe zoo con un print
+"""
+#CLASS ZOO
+class zoo:
+    
+    #INIT
+    def __init__(self, ):
+        pass
+    
+    #DESCRIBE
+    def describe_zoo():
+        pass
+>>>>>>> 80182c2b57c89c6845ea7f1bfb83904a4b194060:lezione008/zoo.py
 
 #CLASS ANIMAL
 class Animal:
     pass
 
     #INIT
+<<<<<<< HEAD:lezione008/Es_01
     def __init__(self, name, species, age, height, width, preffered_habitat):
         
         #DEC
@@ -58,6 +76,10 @@ class Animal:
 
         #BODY
         self.volume = self.height*self.width
+=======
+    def __init__(self, name, species, age, height, width, preferred_habitat, health):
+        pass
+>>>>>>> 80182c2b57c89c6845ea7f1bfb83904a4b194060:lezione008/zoo.py
 
 #CLASS FENCE
 class Fence:
@@ -71,6 +93,7 @@ class Fence:
         self.habitat = habitat
         self.area_cleaned = area
 
+<<<<<<< HEAD:lezione008/Es_01
         if animals is None:
             self.animals = []
         else:
@@ -100,6 +123,23 @@ class Fence:
 
 #CLASS ZOOKEEPER
 class Zookeeper:
+=======
+#CLASS ZOOKEEPER
+class zookeeper:
+
+
+    #INIT
+    def __init__(self, id, nome, cognome):
+        pass
+
+    #ADD ANIMAL
+    def add_animal(animal:Animal, fence: Fence):
+        pass
+
+    #REMOVE ANIMAL
+    def remove_animal(animal:Animal, fence: Fence):
+        pass
+>>>>>>> 80182c2b57c89c6845ea7f1bfb83904a4b194060:lezione008/zoo.py
     
     #INIT
     def __init__(self, name, surname, id:str):
@@ -108,6 +148,7 @@ class Zookeeper:
         self.id = id
     """
     #SOMETHING TO EAT
+<<<<<<< HEAD:lezione008/Es_01
     def feed(self, zoo):
         for fence in Zoo.fences:
             for animal in Fence.animals:
@@ -125,6 +166,10 @@ class Zookeeper:
             
 ########## inserisci azione
             pass
+=======
+    def feed(animal:Animal, fence: Fence):
+        pass
+>>>>>>> 80182c2b57c89c6845ea7f1bfb83904a4b194060:lezione008/zoo.py
 
     #CLEAN ENCLOSURE
     def clean(self, fence):
