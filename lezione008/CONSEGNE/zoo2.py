@@ -42,7 +42,6 @@
 
 #CLASS ANIMAL
 class Animal:
-    pass
 
     #INIT
     def __init__(self, name, species, age, height, width, preffered_habitat):
@@ -61,7 +60,6 @@ class Animal:
 
 #CLASS FENCE
 class Fence:
-    pass
 
     #INIT
     def __init__(self, area:float, temperature: float, habitat:str, animals=None):
@@ -148,24 +146,24 @@ class Zoo:
         else:
             self.fences = fences
         
-        #add new fence
-        def add_fence(self, fence):
-            self.fence.append(fence)
-        
-        #remove some fence
-        def remove_fence(self, fence):
-            if fence in self.fence:
-                self.fence.remove(fence)
-        
-        #così.... tanto per ribadire...
-        #add zoo_keeper
-        def add_zoo_keeper(self, zoo_keeper):
-            self.zoo_keepers.add(zoo_keeper)
-        
-        #remove zoo_keeper
-        def remove_zoo_keeper(self, zoo_keeper):
-            if zoo_keeper in self.zoo_keepers:
-                self.zoo_keepers.remove(zoo_keeper)
+    #add new fence
+    def add_fence(self, fence):
+        self.fence.append(fence)
+    
+    #remove some fence
+    def remove_fence(self, fence):
+        if fence in self.fence:
+            self.fence.remove(fence)
+    
+    #così.... tanto per ribadire...
+    #add zoo_keeper
+    def add_zoo_keeper(self, zoo_keeper):
+        self.zoo_keepers.add(zoo_keeper)
+    
+    #remove zoo_keeper
+    def remove_zoo_keeper(self, zoo_keeper):
+        if zoo_keeper in self.zoo_keepers:
+            self.zoo_keepers.remove(zoo_keeper)
 
 
     #DESCRIBE
