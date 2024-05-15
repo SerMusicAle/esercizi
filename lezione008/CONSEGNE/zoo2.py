@@ -12,9 +12,6 @@
     OK    stampa tutti gli zookeeper, 
     OK    stampa caratteristiche di ogni recinto, con animali
     OK habitat è una stringa
-    OK add_animal inserisce un animale nel recinto che rispetta l'habitat e le necessità come le dimensioni
-    lo spazio deve esser sufficiente
-    OK remove_animal. se sta nel recinto. si ripristina l'area rimasta
 
     ANIMALE
     OK animale ha caratteristiche, habitat preferito, stato salute
@@ -23,16 +20,16 @@
     GUARDIANI
     OK nome, surname, id, 
     OK ID è una stringa
-    -- nutrire:
+    OK nutrire:
         salute incrementa di 1% ad ogni nutrimento
         dimensioni dell'animale incrementano del 2% ad ogni nutrimento. 
         verifica se lo spazio è sufficiente a farlo mangiara 
-    -- pulire
+    OK pulire
         torna un float come tempo necessario a pulire
         l'area occupata / area rimasta
-    ?? svolgere compiti
-
-
+    OK remove_animal. se sta nel recinto. si ripristina l'area rimasta
+    OK add_animal inserisce un animale nel recinto che rispetta l'habitat e le necessità come le dimensioni
+    OKlo spazio deve esser sufficiente
 
     CONSEGNA
     file zip (nome e cognome), contenente il file zoo.py
@@ -44,7 +41,7 @@
 class Animal:
 
     #INIT
-    def __init__(self, name, species, age, height, width, preffered_habitat):
+    def __init__(self, name:str, species:str, age:int, height, width, preferred_habitat:str, health):
         
         #DEC
         self.name = name
@@ -52,7 +49,7 @@ class Animal:
         self.age = age
         self.height = height
         self.width = width
-        self.preffered_habitat = preffered_habitat
+        self.preferred_habitat = preferred_habitat
         self.health = round(100 * (1/age), 3)
 
         #BODY
@@ -62,70 +59,76 @@ class Animal:
 class Fence:
 
     #INIT
-    def __init__(self, area:float, temperature: float, habitat:str, animals=None):
+    def __init__(self, area:float, temperature: float, habitat:str):
         
         self.area = area
         self. temperature = temperature
         self.habitat = habitat
         self.area_cleaned = area
-
-        if animals is None:
-            self.animals = []
-        else:
-            self.animals = animals
-    
-    #ADD ANIMAL
-
-
-####### inserisci condizione di spazio
-    
-    def add_animal(self, animal: Animal):
-        if self.area_cleaned >= animal.volume and animal.preffered_habitat == self.habitat:
-            self.animals.append(animal)
-            self.area_cleaned -= animal.volume
-
-    #REMOVE ANIMAL
-
-###inserisci agiornamento spazio
-
-    def remove_animal(self, animal:Animal):
-        
-        if animal in self.animals:
-            self.animals.remove(animal)
-            self.area -= animal.volume
-
+        self.animals:list= []
 
 
 #CLASS ZOOKEEPER
 class Zookeeper:
     
     #INIT
-    def __init__(self, name, surname, id:str):
+    def __init__(self, name:str, surname:str, id:str):
         self.name = name
         self.surname = surname
         self.id = id
 
-############################################ da finire ###################################
+    def add_animal(self, animal: Animal, fence:Fence):
+        if fence.area_cleaned >= animal.volume and animal.preferred_habitat == fence.habitat:
+            fence.animals.append(animal)
+            fence.area_cleaned -= animal.volume
+
+    def remove_animal(self, animal:Animal, fence:Fence):
+        if self.has_animal(animal, fence):
+            fence.animals.remove(animal)
+            fence.area_cleaned += animal.volume
+
+    def has_animal(self, animal:Animal, fence:Fence):
+        return animal in fence.animals
+
+    #CLEAN ENCLOSURE
+    def clean(self, fence:Fence):
+        
+        #BODY
+        if fence.area_cleaned == 0:
+            return fence.area
+        else:
+            time_clean:float = (fence.area-fence.area_cleaned) /fence.area_cleaned
+            return time_clean
+
     #SOMETHING TO EAT
     def feed(self, animal:Animal):
+
+        #for every fence
         for fence in Zoo.fences:
+
+            #security backup dimension
+            depheight = Animal.height
+            depwidth = Animal.width
+            
+            #for every animal in fance
             for animal in Fence.animals:
                 height = animal.height * 1.02
                 width = animal.width * 1.02
                 volume = height * width
- 
-                if Fence.area >= volume:
+
+                #verify empty space
+                if fence.area >= volume:
                     animal.height = height
                     animal.width = width
                     animal.volume= volume
+                    fence.area -=volume
+                    animal.health *= 1.01
 
-                fence.
+                else:
+                    animal.height = depheight
+                    animal.width = depwidth
 
-            
 
-    #CLEAN ENCLOSURE
-    def clean(self, fence):
-        tempo = (fence.area - fence.area_cleaned) /fence.area_cleaned
 
 
 #CLASS ZOO
@@ -133,46 +136,48 @@ class Zoo:
 
     #INIT
     def __init__(self, fences=None, zoo_keepers=None ):
-
-        #verify the presence of zoo_keepers        
-        if zoo_keepers is None:
-            self.zoo_keepers = []
-        else:
-            self.zoo_keepers = zoo_keepers
-
-        #verify the presence of fences
-        if fences is None:
-            self.fences = []
-        else:
-            self.fences = fences
-        
-    #add new fence
-    def add_fence(self, fence):
-        self.fence.append(fence)
-    
-    #remove some fence
-    def remove_fence(self, fence):
-        if fence in self.fence:
-            self.fence.remove(fence)
-    
-    #così.... tanto per ribadire...
-    #add zoo_keeper
-    def add_zoo_keeper(self, zoo_keeper):
-        self.zoo_keepers.add(zoo_keeper)
-    
-    #remove zoo_keeper
-    def remove_zoo_keeper(self, zoo_keeper):
-        if zoo_keeper in self.zoo_keepers:
-            self.zoo_keepers.remove(zoo_keeper)
+        self.fences = fences
+        self.zoo_keepers = zoo_keepers
 
 
     #DESCRIBE
     def describe_zoo(self):
-        zookeepers_info = "\n".join(str(keeper) for keeper in self.zoo_keepers)
-        fences_info = "\n\n".join(str(fence) for fence in self.fences)
-        animals_info = "\n\n".join(str(animal) for animal in self.animals)
-        return f"lo Zoo è composto da: \n\n i seguenti guardiani: \n {zookeepers_info} \n  
-                che controllano i seguenti recinti: \n {fences_info} \
-                che contengono i seguenti animali: \n {animals_info}"
+        zookeepers_info = "\n".join(f"{keeper.name} {keeper.surname}" for keeper in self.zoo_keepers)
+        fences_info = "\n\n".join(f"Dimensione recinto: {fence.area}, Habitat: {fence.habitat}, con gli animali: {','.join(animal.name for animal in fence.animals)}" for fence in self.fences)
+
+        return f"lo Zoo è composto da: \n\n i seguenti guardiani: \n{zookeepers_info} \n\n che controllano i seguenti recinti: \n {fences_info}"
 
 
+
+
+# create objects
+zookeeper1 = Zookeeper(name="Mario", surname="Rossi", id="ZK001")
+zookeeper2 = Zookeeper(name="Luigi", surname="Verdi", id="ZK002")
+
+recinto1 = Fence(area=100.0, temperature=25.0, habitat="foresta")
+recinto2 = Fence(area=150.0, temperature=20.0, habitat="deserto")
+recinto3 = Fence(area=150.0, temperature=20.0, habitat="deserto")
+
+animale1 = Animal(name="Scimmia", species="Capuchin", age=5, height=0.5, width=0.5, preferred_habitat="foresta", health=100)
+animale2 = Animal(name="Leone", species="Panthera leo", age=8, height=1.2, width=2.0, preferred_habitat="deserto", health=100)
+animale3 = Animal(name="Paguro", species="Crostaceo", age=8, height=1.2, width=2.0, preferred_habitat="deserto", health=100)
+
+zoo = Zoo(fences=[recinto1, recinto2, recinto3], zoo_keepers=[zookeeper1, zookeeper2])
+
+# add animal to fence
+zookeeper1.add_animal(animale1, recinto1)
+zookeeper2.add_animal(animale2, recinto2)
+zookeeper2.add_animal(animale3, recinto3)
+
+# remove animal from fence
+zookeeper1.remove_animal(animale1, recinto1)
+zookeeper2.remove_animal(animale2, recinto2)
+
+# clean fence
+tempo_pulizia_recinto1 = zookeeper1.clean(recinto1)
+tempo_pulizia_recinto2 = zookeeper2.clean(recinto2)
+print(f"Tempo necessario per pulire il recinto 1: {tempo_pulizia_recinto1} unità di tempo")
+print(f"Tempo necessario per pulire il recinto 2: {tempo_pulizia_recinto2} unità di tempo")
+
+# describe zoo
+print(zoo.describe_zoo())
