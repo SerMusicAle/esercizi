@@ -16,3 +16,4 @@ def create_contact(name: str, email: str=None, telefono: int=None) -> dict:
 def update_contact(dictionary: dict, name: str, email: str =None, telefono: int=None) -> dict:
     # cancella pass e scrivi il tuo codice
     pass
+
