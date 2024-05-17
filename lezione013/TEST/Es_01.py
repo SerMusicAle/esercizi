@@ -54,10 +54,10 @@ class Book:
 class Member:
 
     #INIT
-    def __init__(self, member_id:str, name:str, borrowed_books:list[Book]) -> None:
-        self.member_id = member_id
+    def __init__(self, member_id:str, name:str) -> None:
+        self.member = member_id
         self.name = name
-        self.borrowed_books = borrowed_books
+        self.borrowed_books = []
 
     def borrow_book(self, book):
         if Book.book in Library.books:
