@@ -21,7 +21,7 @@ class TreeNode:
         
 def symmetric(tree: list[int]) -> bool:
     for i in tree:
-        if 2*i+1 and 2*(i+1) not in range (list):
+        if tree[2*i+1] is None and tree[2*(i+1)] is None:
             return False
 
 Tree:list = [1,2,2,3,4,4,3]
