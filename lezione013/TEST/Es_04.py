@@ -20,8 +20,11 @@ class TreeNode:
         self.right = right
         
 def symmetric(tree: list[int]) -> bool:
+
     for i in tree:
-        if tree[2*i+1] is None and tree[2*(i+1)] is None:
+        left = 2*i+1
+        right = 2*(i+1)
+        if left>len(tree) or right>len(tree):
             return False
 
 Tree:list = [1,2,2,3,4,4,3]
