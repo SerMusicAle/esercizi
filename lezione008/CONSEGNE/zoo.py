@@ -1,42 +1,3 @@
-"""
-    ENTRO LE 23.59 del 16 05 2024
-    
-    ZOO
-    
-    RECINTI
-    OK area float, 
-    OK temperatura float
-    OK habitat stringa
-    lista di animali che puo contenere
-    -- describe_zoo come __str__ 
-    OK    stampa tutti gli zookeeper, 
-    OK    stampa caratteristiche di ogni recinto, con animali
-    OK habitat è una stringa
-
-    ANIMALE
-    OK animale ha caratteristiche, habitat preferito, stato salute
-       finire alla terza cifra per la salute
-        
-    GUARDIANI
-    OK nome, surname, id, 
-    OK ID è una stringa
-    OK nutrire:
-        salute incrementa di 1% ad ogni nutrimento
-        dimensioni dell'animale incrementano del 2% ad ogni nutrimento. 
-        verifica se lo spazio è sufficiente a farlo mangiara 
-    OK pulire
-        torna un float come tempo necessario a pulire
-        l'area occupata / area rimasta
-    OK remove_animal. se sta nel recinto. si ripristina l'area rimasta
-    OK add_animal inserisce un animale nel recinto che rispetta l'habitat e le necessità come le dimensioni
-    OKlo spazio deve esser sufficiente
-
-    CONSEGNA
-    file zip (nome e cognome), contenente il file zoo.py
-    compilare come con code runner, senza dati in input
-    describe zoo è l'unico print. gli altri sono tutti controlli
-"""
-
 class Animal:
     
     #INIT
@@ -129,36 +90,3 @@ class Zoo:
         description = f"lo Zoo è composto da: \n\n i seguenti guardiani: \n{zookeepers_info} \n\n che controllano i seguenti recinti: \n {fences_info}"
 
         print (description)
-
-
-# create objects
-zookeeper1 = Zookeeper(name="Mario", surname="Rossi", id="ZK001")
-zookeeper2 = Zookeeper(name="Luigi", surname="Verdi", id="ZK002")
-
-recinto1 = Fence(area=100.0, temperature=25.0, habitat="foresta")
-recinto2 = Fence(area=150.0, temperature=20.0, habitat="deserto")
-recinto3 = Fence(area=150.0, temperature=20.0, habitat="deserto")
-
-animale1 = Animal(name="Scimmia", species="Capuchin", age=5, height=0.5, width=0.5, preferred_habitat="foresta", health=100)
-animale2 = Animal(name="Leone", species="Panthera leo", age=8, height=1.2, width=2.0, preferred_habitat="deserto", health=100)
-animale3 = Animal(name="Paguro", species="Crostaceo", age=8, height=1.2, width=2.0, preferred_habitat="deserto", health=100)
-
-zoo = Zoo(fences=[recinto1, recinto2, recinto3], zoo_keepers=[zookeeper1, zookeeper2])
-
-# add animal to fence
-zookeeper1.add_animal(animale1, recinto1)
-zookeeper2.add_animal(animale2, recinto2)
-zookeeper2.add_animal(animale3, recinto3)
-
-# remove animal from fence
-zookeeper1.remove_animal(animale1, recinto1)
-zookeeper2.remove_animal(animale2, recinto2)
-
-# clean fence
-tempo_pulizia_recinto1 = zookeeper1.clean(recinto1)
-tempo_pulizia_recinto2 = zookeeper2.clean(recinto2)
-print(f"Tempo necessario per pulire il recinto 1: {tempo_pulizia_recinto1} unità di tempo")
-print(f"Tempo necessario per pulire il recinto 2: {tempo_pulizia_recinto2} unità di tempo")
-
-# describe zoo
-zoo.describe_zoo()
