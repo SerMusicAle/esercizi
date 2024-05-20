@@ -21,7 +21,7 @@ class TreeNode:
         
 def symmetric(tree: list[int]) -> bool:
 
-    for i in tree:
+    for i in range (len(tree)):
         left = 2*i+1
         right = 2*(i+1)
         if left>len(tree) or right>len(tree):
