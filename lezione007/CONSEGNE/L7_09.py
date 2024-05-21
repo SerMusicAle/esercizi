@@ -7,17 +7,18 @@ Se la chiave è già presente, aggiungi il valore alla lista di valori già asso
 def convertitore (listadati):
     
     #INIT
-    abbinamenti:list  = {}
+    abbinamenti: dict = {}
+
     #BODY
     for chiave, valore in listadati:
         if chiave in abbinamenti:
             abbinamenti[chiave].append(valore)
         else:
             abbinamenti[chiave] = [valore]
-    print (f"gli elementi del dizionario sono")
+    print(f"gli elementi del dizionario sono")
     for chiave, valore in abbinamenti.items():
-        print (f"a {chiave} corrisponde {valore}")
-
+        valori_str = ", ".join(valore)
+        print (f"a {chiave} corrisponde/corrispondono: {valori_str}")
 
 #INPUT
 listadati = [
