@@ -16,7 +16,7 @@ def removecopy():
     [listaunivoca.append(i) for i in lista if i not in listaunivoca]
 
 #RETURN
-    print(f"la lista pulita è: "+ ", ".join(str(i) for i in listaunivoca))
+    print(f"la lista pulita è: {', ' .join(str(i) for i in listaunivoca)}")
         
 
 #CALL
