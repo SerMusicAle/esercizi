@@ -15,6 +15,7 @@ class Films:
 
 class Stampa_step:
     
+    #inizializzo 
     def __init__(self, elenco_films: dict[str, Film]):
         self.elenco_films = elenco_films
         self.sorted_films: list[Film] = list (elenco_films.values())
