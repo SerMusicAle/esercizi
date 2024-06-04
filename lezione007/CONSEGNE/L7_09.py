@@ -4,7 +4,7 @@ CONSEGNA
 Se la chiave è già presente, aggiungi il valore alla lista di valori già associata alla chiave.
 """
 
-def convertitore (listadati):
+def f_convertitore (listadati):
     
     #INIT
     abbinamenti: dict = {}
@@ -41,4 +41,4 @@ listadati = [
 
 
 #CALL
-convertitore (listadati)
+f_convertitore (listadati)

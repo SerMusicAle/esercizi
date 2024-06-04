@@ -6,7 +6,7 @@ o None se il valore non è presente.
 
 """
 
-def diz_val(dizionario:dict, valore:int):
+def f_diz_val(dizionario:dict, valore:int):
     
     #DEC
     contatore:int = 0
@@ -21,4 +21,4 @@ dizionario = {"uno": 1, "due": 2, "tre": 3}
 valore = 2
 
 #RETURN
-diz_val(dizionario, valore)
+f_diz_val(dizionario, valore)

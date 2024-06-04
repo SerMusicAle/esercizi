@@ -4,7 +4,7 @@ CONSEGNA
 Un numero è considerato magico se è divisibile per 4 ma non per 6.
 """
 
-def magico (numero):
+def f_magico (numero):
 
     #BODY
     if numero%4 == 0 and numero%6 != 0:
@@ -15,5 +15,5 @@ def magico (numero):
     print(risposta)
 
 #CALL
-magico(8)
+f_magico(8)
 

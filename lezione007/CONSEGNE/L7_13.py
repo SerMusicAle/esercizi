@@ -6,7 +6,7 @@ ritorni un dictionary che mappa ogni elemento alla sua frequenza nella lista.
 
 """
 
-def freqinlista ():
+def f_freqinlista ():
 
 #INIT
     lista: list = [1,2,3,4,5,4,5,4,3,5,6,7,2,4,5,]
@@ -24,4 +24,4 @@ def freqinlista ():
 #INPUT  
 
 #CALL
-freqinlista ()
+f_freqinlista ()

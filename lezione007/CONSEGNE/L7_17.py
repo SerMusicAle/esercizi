@@ -6,7 +6,7 @@ CONSEGNA
 """
 
 
-def media():
+def f_media():
 
 
 #INIT
@@ -25,4 +25,4 @@ def media():
 
 
 #CALL
-media()
+f_media()

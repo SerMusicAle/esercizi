@@ -5,7 +5,7 @@ CONSEGNA
 """
 
 
-def diclist (voti:list):
+def f_diclist (voti:list):
 
     #INIT
     Alessandro: dict = {}
@@ -42,4 +42,4 @@ voti: list = [
     {"Materia":"filosogia", "Alessandro": 8, "Marco" : 6, "Luigi": 7}
 ]
 
-diclist(voti)
+f_diclist(voti)

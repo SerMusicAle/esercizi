@@ -6,7 +6,7 @@ CONSEGNA
 
 """
 
-def dictuniti (dizionario1, dizionario2):
+def f_dictuniti (dizionario1, dizionario2):
 
 #INIT
 
@@ -37,4 +37,4 @@ dizionario2: dict = {
 }
 
 #CALL
-dictuniti(dizionario1, dizionario2)
+f_dictuniti(dizionario1, dizionario2)

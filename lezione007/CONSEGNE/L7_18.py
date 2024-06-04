@@ -6,7 +6,7 @@ CONSEGNA
 """
 
 
-def removecopy():
+def f_removecopy():
 
 #INIT
     lista:list = [1,2,2,3,3,4,4,5,6,7, "a","s","s","d","d","f","g","h","j","j"]
@@ -20,4 +20,4 @@ def removecopy():
         
 
 #CALL
-removecopy()
+f_removecopy()

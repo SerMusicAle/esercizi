@@ -6,7 +6,7 @@ CONSEGNA
 
 """
 
-def insiememinor (rimuovere):
+def f_insiememinor (rimuovere):
 
 
 #INIT
@@ -24,4 +24,4 @@ def insiememinor (rimuovere):
 rimuovere: list = [1,3,5,7,9]
 
 #CALL
-insiememinor(rimuovere)
+f_insiememinor(rimuovere)

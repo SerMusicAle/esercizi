@@ -5,7 +5,7 @@ CONSEGNA
 - ritorna un dizionario che classifica i numeri in liste separate per numeri pari e dispari.
 """
 
-def classifica (listanum):
+def f_classifica (listanum):
 
 #INIT
     orddict: dict = {"pari": [], "dispari": []}
@@ -26,4 +26,4 @@ def classifica (listanum):
 listanum:list = [1,2,3,4,5,6,7,8,9]
 
 #CALL
-classifica(listanum)
+f_classifica(listanum)

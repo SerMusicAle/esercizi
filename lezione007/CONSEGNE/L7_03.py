@@ -5,7 +5,7 @@ e restituisce una nuova lista con i numeri pari moltiplicati per un fattore dato
 """
 
 
-def filter():
+def f_filter():
 
      #INIT
     pari:list = [2,4,6,8]
@@ -18,4 +18,4 @@ def filter():
         print (i)
 
 #CALL    
-filter()
+f_filter()

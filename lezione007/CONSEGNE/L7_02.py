@@ -4,7 +4,7 @@ CONSEGNA
 Se ci sono valori duplicati, scarta i duplicati.
 
 """
-def inversioneKV ():
+def f_inversioneKV ():
     
     #DEC
     diz_originale = {"uno": 1, "due": 2, "tre": 3}
@@ -18,4 +18,4 @@ def inversioneKV ():
         print (f"{k} : {v}")
 
 #CALL
-inversioneKV()
+f_inversioneKV()

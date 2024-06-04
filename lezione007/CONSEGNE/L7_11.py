@@ -5,7 +5,7 @@ CONSEGNA
 - Utilizza il concetto di parametri opzionali.
 """
 
-def conversione ():
+def f_conversione ():
 
 #INIT
     cel_in_far = 0
@@ -28,4 +28,4 @@ def conversione ():
 #INPUT
 
 #CALL
-conversione()
+f_conversione()

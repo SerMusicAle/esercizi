@@ -5,7 +5,7 @@ CONSEGNA
 """
 
 
-def price (price):
+def f_price (price):
 
     #INIT
     saldi = {}
@@ -23,7 +23,7 @@ def price (price):
 
 
 #CALL
-price({
+f_price({
     "panino": 20.99,
     "insalata": 4.49,
     "pizza": 8.99,

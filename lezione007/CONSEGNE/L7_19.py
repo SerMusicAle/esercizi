@@ -7,7 +7,7 @@ CONSEGNA
 - Per la rotazione utilizzare lo slicing
 - gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
 """
-def posizioni (quantity):
+def f_posizioni (quantity):
 
 
 #INIT
@@ -31,6 +31,6 @@ quantity = int(input("quante volte devo far ruotare la lista?"))
 
 
 #CALL
-posizioni(quantity)
+f_posizioni(quantity)
 
 #print(posizioni(quantity))

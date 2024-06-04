@@ -5,7 +5,7 @@ CONSEGNA
 
 """
 
-def somma (valore):
+def f_somma (valore):
 
 #INIT
     numeri:list = [1,2,3,4,5,6,7,8,9]
@@ -18,4 +18,4 @@ def somma (valore):
 #INPUT
 valore = int(input(f"dammi il valore interno da considerare: "))
 #CALL
-somma(valore)
+f_somma(valore)
