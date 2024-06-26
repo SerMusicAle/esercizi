@@ -1,0 +1,63 @@
+Livello 1: Fondamenti di Python
+OK Variabili e Tipi di Dati
+
+Dichiarazione di variabili di diversi tipi (int, float, string, boolean).
+Operazioni di base su variabili (somma, sottrazione, moltiplicazione, divisione).
+Input e Output
+
+Utilizzo della funzione input() per acquisire dati dall'utente.
+Utilizzo della funzione print() per stampare output.
+Condizioni e Controllo di Flusso
+
+Utilizzo degli statement condizionali (if, else, elif).
+Esercizi con condizioni semplici e annidate.
+Cicli
+
+Utilizzo dei cicli for e while.
+Esercizi di iterazione su liste, tuple, stringhe.
+Livello 2: Strutture Dati Avanzate
+Liste
+
+Creazione e manipolazione di liste.
+Operazioni comuni su liste (aggiunta, rimozione, slicing).
+Tuple
+
+Creazione e utilizzo delle tuple.
+Differenze tra tuple e liste.
+Dizionari
+
+Creazione e manipolazione di dizionari.
+Accesso e modifica delle chiavi e dei valori.
+Livello 3: Funzioni e Modularità
+Funzioni
+
+Creazione e chiamata di funzioni.
+Passaggio di parametri per valore e per riferimento.
+Funzioni Ricorsive
+
+Implementazione di funzioni che si richiamano recursive.
+Livello 4: Programmazione Orientata agli Oggetti
+Classi e Oggetti
+
+Definizione di classi e creazione di oggetti.
+Utilizzo di metodi e attributi di classe.
+Ereditarietà
+
+Creazione di classi figlio che ereditano da classi genitore.
+Override di metodi.
+Metodi Speciali
+
+Utilizzo di metodi speciali come __init__, __str__, __repr__.
+Livello 5: Gestione delle Eccezioni
+Gestione delle Eccezioni
+Utilizzo di try, except, finally per gestire errori.
+Livello 6: Moduli e Pacchetti
+Moduli e Pacchetti
+Creazione e utilizzo di moduli Python.
+Importazione di moduli esterni.
+Livello 7: Gestione dei File
+Lettura e Scrittura su File
+Utilizzo delle funzioni open(), read(), write() per gestire file.
+Livello 8: Progetti Pratici
+Progetto Simile all'ATAC
+Creazione di un sistema per la gestione delle linee e dei percorsi di un'autobus, con classi per rappresentare autobus, linee, fermate, e gestione delle prenotazioni.

@@ -1,0 +1,46 @@
+Esercizio 1: Creare una Classe Astratta con Metodi Astratti
+Crea una classe astratta Shape con un metodo astratto area e un altro metodo astratto perimeter. Quindi, crea due sottoclassi Circle e Rectangle che implementano i metodi area e perimeter.
+
+Esercizio 2: Implementare Metodi Statici
+Crea una classe MathOperations con un metodo statico add che prende due numeri e restituisce la loro somma, e un altro metodo statico multiply che prende due numeri e restituisce il loro prodotto.
+
+Esercizio 3: Sistema di Gestione della Biblioteca
+Crea una classe Book contenente i seguenti attributi: title, author, isbn. La classe Book deve contenere i seguenti metodi:
+
+Metodo str per restituire una rappresentazione stringa del libro.
+
+@classmethod from_string(cls, book_str) per creare un'istanza di Book da una stringa nel formato "title, author, isbn". Significa che devi usare il riferimento alla classe cls per creare un nuovo oggetto della classe Book usando una stringa.
+
+Esempio:
+book = "La Divina Commedia, D. Alighieri, 999000666"
+divina_commedia: Book = Book.from_string(book)
+Qui divina_commedia deve contenere un'istanza della classe Book con
+
+title = La Divina Commedia, author = D. Alighieri, isbn = 999000666
+
+Crea una classe Member con i seguenti attributi: name, member_id, borrowed_books. La classe Member deve contenere i seguenti metodi:
+
+borrow_book(book) per aggiungere un libro alla lista borrowed_books.
+
+return_book(book) per rimuovere un libro dalla lista borrowed_books.
+
+Metodo str per restituire una rappresentazione stringa del membro.
+
+@classmethod from_string(cls, member_str) per creare un'istanza di Member da una stringa nel formato "name, member_id".
+
+Crea una classe Library con i seguenti attributi: books, members, total_books (attributo di classe per tenere traccia del numero totale di libri). La classe Library deve contenere i seguenti metodi:
+
+add_book(book) per aggiungere un libro alla biblioteca e incrementare total_books.
+
+remove_book(book) per rimuovere un libro dalla biblioteca e decrementare total_books.
+
+register_member(member) per aggiungere un membro alla biblioteca.
+
+lend_book(book, member) per prestare un libro a un membro. Dovrebbe verificare se il libro è disponibile e se il membro è registrato.
+
+Metodo str per restituire una rappresentazione stringa della biblioteca con l'elenco di libri e membri.
+
+@classmethod library_statistics(cls) per stampare il numero totale di libri.
+
+Crea uno script e gioca un po' con le classi:
+Crea istanze di libri e membri usando i metodi di classe. Registra membri e aggiungi libri alla biblioteca. Presta libri ai membri e visualizza lo stato della biblioteca prima e dopo il prestito.
