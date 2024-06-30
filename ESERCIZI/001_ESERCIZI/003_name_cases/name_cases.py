@@ -1,14 +1,7 @@
 
-"""
-    2-4. Name Cases: 
-    Use a variable to represent a person’s name, and then print that person’s name in lowercase, uppercase, and title case.
-"""
-"""
-import unittest
-
 class NameCases ():
 #INIT
-    def __init__(self, name):
+    def __init__(self, name:str):
         self.__name = name
         
 #BODY       
@@ -27,7 +20,7 @@ class NameCases ():
         self.__swapcasetext = self.__name.swapcase()
 
         #export the phrases
-        list_name : list = [
+        list_name : list [str] = [
             self.__uppertext, 
             self.__lowertext, 
             self.__titletext, 
@@ -36,21 +29,3 @@ class NameCases ():
             ]
 
         return list_name
-    
-#TEST
-class TestNamecases (unittest.TestCase):
-#SETUP
-    def setUp (self):
-        self.name: str = "Alessandro"
-        self.nometest = NameCases (self.name)
-        self.nomi = ['ALESSANDRO', 'alessandro', 'Alessandro', 'Alessandro', 'aLESSANDRO']
-#BODY
-    def test_f_name_cases (self):
-        result_test = self.nometest.f_name_cases()
-        self.assertEqual(result_test, self.nomi, "return di una lista non corrispondente")        
-
-#RUN
-if __name__ == '__main__':
-    unittest.main() 
-    
-"""

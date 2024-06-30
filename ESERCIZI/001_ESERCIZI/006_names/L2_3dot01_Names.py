@@ -6,17 +6,17 @@
     Print each person’s name by accessing each element in the list, one at a time.
 """
 #FUNCTION
-def f_names (names_list):
+def f_names (names_list:list [str]):
     #DECLARATION LOCAL VAR - none
     for name in names_list:
         print (name)
 
 #INPUT requests
 print (f"inserisci il nome di alcuni tuoi amici")
-names: list = input()
+names: str = input()
 
 #generate the list by input string
-names_list = [names.strip() for name in names.split(",")]
+names_list:list[str] = [names.strip() for name in names.split(",")]
 
 #CALL
 res = f_names(names_list)    

@@ -5,7 +5,7 @@
     Your output should look something like the following, including the quotation marks: 
     Albert Einstein once said, “A person who never made a mistake never tried anything new.”
 """
-
+"""
 #FUNCTION
 def f_quotes (vip):
 
@@ -36,6 +36,6 @@ res = f_quotes(vip)
 
 print (res)
 
-
+"""
 
 
