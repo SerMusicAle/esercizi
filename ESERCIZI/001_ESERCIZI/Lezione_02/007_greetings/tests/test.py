@@ -13,7 +13,7 @@ class test_Names(unittest.TestCase):
         
         for nome in self.nominativi:
             expected:str = f"ciao {nome}, benvenuto tra i miei amici"
-            self.assertEqual (self.istanza_nomi.messaggi[nome], expected, f"ciao {nome}, benvenuto tra i miei amici")
+            self.assertEqual (self.istanza_nomi.messaggi[nome], expected, "ERR. TEST F STAMPA. risultato non corrispondente")
 
 #RUN
 if __name__ == '__main__':

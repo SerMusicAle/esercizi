@@ -1,10 +1,10 @@
 #DESCRIPTION FUNCTION
 """
-    3-3. Your Own List: Think of your favorite mode of transportation, 
-    such as a motorcycle or a car, 
-    and make a list that stores several examples. 
-    Use your list to print a series of statements about these items, 
-    such as “I would like to own a Honda motorcycle.
+3-3. La tua lista personale: 
+    Pensa al tuo mezzo di trasporto preferito, come una motocicletta o un'auto, 
+    crea una lista che contenga diversi esempi. 
+    Usa la tua lista per stampare una serie di affermazioni su questi elementi, 
+    come "Mi piacerebbe possedere una motocicletta Honda".
 ”"""
 
 #FUNCTION
