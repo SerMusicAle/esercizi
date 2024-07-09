@@ -1,0 +1,7 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Cognome;Nome;Secondo Nome;Prefisso Nome;Suffisso Nome
+FN:Prefisso Nome Nome Secondo Nome Cognome, Suffisso Nome
+item1.TEL:+39 000 000 0000
+item1.X-ABLabel:Cellulare
+END:VCARD
