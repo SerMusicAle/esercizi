@@ -1,0 +1,272 @@
+/* Sfondo del corpo */
+body {
+    background-color: rgb(240, 218, 177);
+}
+
+/* Allineamento del testo */
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-justify {
+    text-align: justify;
+}
+
+/* Decorazione del testo */
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.text-decoration-underline {
+    text-decoration: underline;
+}
+
+.text-decoration-overline {
+    text-decoration: overline;
+}
+
+.text-decoration-line-through {
+    text-decoration: line-through;
+}
+
+.text-decoration-dotted {
+    text-decoration-style: dotted;
+}
+
+.text-decoration-dashed {
+    text-decoration-style: dashed;
+}
+
+.text-decoration-double {
+    text-decoration-style: double;
+}
+
+.text-decoration-wavy {
+    text-decoration-style: wavy;
+}
+
+/* Trasformazione del testo */
+.text-transform-uppercase {
+    text-transform: uppercase;
+}
+
+.text-transform-lowercase {
+    text-transform: lowercase;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+/* Sovraccarico del testo */
+.text-overflow-clip {
+    text-overflow: clip;
+}
+
+.text-overflow-ellipsis {
+    text-overflow: ellipsis;
+}
+
+/* Spazio tra le parole */
+.word-spacing-normal {
+    word-spacing: normal;
+}
+
+.word-spacing-wide {
+    word-spacing: 1em;
+}
+
+.word-spacing-narrow {
+    word-spacing: -0.5em;
+}
+
+/* Spazio tra le lettere */
+.letter-spacing-normal {
+    letter-spacing: normal;
+}
+
+.letter-spacing-wide {
+    letter-spacing: 0.2em;
+}
+
+.letter-spacing-narrow {
+    letter-spacing: -0.05em;
+}
+
+/* Stile del font */
+.font-style-normal {
+    font-style: normal;
+}
+
+.font-style-italic {
+    font-style: italic;
+}
+
+.font-style-oblique {
+    font-style: oblique;
+}
+
+/* Peso del font */
+.font-weight-normal {
+    font-weight: normal;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.font-weight-bolder {
+    font-weight: bolder;
+}
+
+.font-weight-light {
+    font-weight: lighter;
+}
+
+.font-weight-100 {
+    font-weight: 100;
+}
+
+.font-weight-200 {
+    font-weight: 200;
+}
+
+.font-weight-300 {
+    font-weight: 300;
+}
+
+.font-weight-400 {
+    font-weight: 400;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.font-weight-800 {
+    font-weight: 800;
+}
+
+.font-weight-900 {
+    font-weight: 900;
+}
+
+/* Altezza della linea */
+.line-height-normal {
+    line-height: normal;
+}
+
+.line-height-1 {
+    line-height: 1;
+}
+
+.line-height-1-5 {
+    line-height: 1.5;
+}
+
+.line-height-2 {
+    line-height: 2;
+}
+
+/* Spaziatura del testo */
+.text-indent-0 {
+    text-indent: 0;
+}
+
+.text-indent-1em {
+    text-indent: 1em;
+}
+
+.text-indent-2em {
+    text-indent: 2em;
+}
+
+.text-indent-negative {
+    text-indent: -1em;
+}
+
+/* Allineamento verticale */
+.vertical-align-baseline {
+    vertical-align: baseline;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.vertical-align-bottom {
+    vertical-align: bottom;
+}
+
+/* Direzione del testo */
+.direction-ltr {
+    direction: ltr;
+}
+
+.direction-rtl {
+    direction: rtl;
+}
+
+/* Decorazioni di iniziale */
+.initial-letter {
+    initial-letter: 2;
+}
+
+/* Variante numerica */
+.numeric-figure-normal {
+    font-variant-numeric: normal;
+}
+
+.numeric-figure-lining {
+    font-variant-numeric: lining-nums;
+}
+
+.numeric-figure-oldstyle {
+    font-variant-numeric: oldstyle-nums;
+}
+
+.numeric-figure-proportional {
+    font-variant-numeric: proportional-nums;
+}
+
+.numeric-figure-tabular {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Varianti di tipo */
+.font-variant-normal {
+    font-variant: normal;
+}
+
+.font-variant-small-caps {
+    font-variant: small-caps;
+}
+
+/* Ombra del testo */
+.text-shadow-none {
+    text-shadow: none;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px #000000;
+}

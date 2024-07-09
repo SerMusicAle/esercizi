@@ -1,0 +1,2 @@
+Esercizio 10: Context Manager per Transazioni
+Crea un context manager che simuli una transazione bancaria. Implementa le operazioni di deposito e prelievo all'interno del context manager e annulla le operazioni se c'è un'eccezione.

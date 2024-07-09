@@ -1,0 +1,8 @@
+
+FROM python
+
+WORKDIR /app
+
+COPY . /app
+
+CMD ["python","2024_07_03_fileprint.py"]

@@ -6,52 +6,36 @@
     Crea un'istanza chiamata ristorante dalla tua classe. 
     Stampa i due attributi individualmente e poi chiama entrambi i metodi.
 """
-import unittest
 
-class NomeClasse ():
+class Restaurant ():
 #INIT
-    def __init__ (self):
-        pass
+    def __init__ (self, restaurant_name:str, cuisine_type:str, status:bool):
+        self.__restaurant_name = restaurant_name
+        self.__cuisine_type = cuisine_type
+        self.__status = status
 #BODY    
-    def f_funzione (self):
-        pass
-    
-class TestNomeClasse (unittest.TestCase):
-#SETUP
-    def setUp ():
-        pass
+    def f_describe_restaurant(self):
+        descrizione: str = self.__restaurant_name
+        tipo: str = self.__cuisine_type
+        return descrizione, tipo
+        
+    def open_restaurant(self):
+        if self.__status:
+            return f"il ristorante è aperto"
+        else:
+            return f"il ristorante è chiuso"
+                 
 
-#RUN
-if __name__ == '__main__':
-    unittest.main()        
-
-
-#DESCRIPTION
-
-#CLASS ENVELOPE
-class Restaurant:
+#CLASS CREAM ENVELOPE        
+class IceCreamStand(Restaurant):
 
     #DEC
-    def __init__(self,restaurant_name:str, cuisine_type:str):
-        self.restaurant_name = restaurant_name
-        self.cuisine_type = cuisine_type
-
-    #BODY
-    def describe_restaurant(self):
-        print ("il ristorante " + self.restaurant_name + "serve " + self.cuisine_type)
-
-    def open_restaurant(self):
-        print ("il ristorante " + self.restaurant_name + "è aperto")
-
-
-#ASSIGNEMENT
-restaurant = Restaurant("Ristorante da Ciro ", "Cucina thailandese")
-
-#RETURN
-#print both attributes
-print ("il nome del ristorante è " + restaurant.restaurant_name)
-print ("il tipo di cucina servito da " + restaurant.restaurant_name + "è " + restaurant.cuisine_type)
-
-#call both methods
-restaurant.describe_restaurant()
-restaurant.open_restaurant()
+    def __init__ (self, restaurant_name:str, cuisine_type:str, status:bool, flavors: list [str]= []):
+        super().__init__ (restaurant_name, cuisine_type, status)
+        self.__flavors = flavors
+    
+    #print flavors
+    def display_flavors(self):
+        print (f"I gusti di gelato pronti sono: ")
+        for flavor in self.flavors:
+            print(flavor)
