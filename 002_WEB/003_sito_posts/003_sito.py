@@ -102,7 +102,7 @@ posts: str = """
             <div class="card-body">
                 <h5 class="card-title">Andiamo a spassoooooooo</h5>
                 <p class="card-text">La grande storia di un animale che viaggiava per le city</p>
-                <a href="#" class="btn btn-primary">Partiamoooooooo</a>
+                <a href="#" class="btn btn-primary">Partiamooo</a>
             </div>
         </div>
     </div>  
