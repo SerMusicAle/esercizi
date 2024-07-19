@@ -1,0 +1,19 @@
+body {
+    margin-left: 30%;
+    margin-right: 30%;
+    font-family: Arial;
+    font-size: 22px;
+    text-align: center;
+}
+p {
+    text-align: left;
+    color: rgb(10, 0, 0);
+} 
+#btnid {
+    text-align: center;		
+}
+
+input[type = submit], input[type = reset] {
+    background-color: rgb(144, 96, 7); 
+    font-size: 22px;	
+    }		
