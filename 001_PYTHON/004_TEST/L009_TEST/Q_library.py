@@ -110,6 +110,14 @@ class Library():
             return self.members[member_id].get_borrowed_books()
         else:
             return None
+        
+    def get_all_books(self):
+        lista_titoli: list[str] = []
+        for key in self.books.keys():
+            lista_titoli.append(key)
+            
+        return lista_titoli
+        
             
 
 #TEST
@@ -156,11 +164,7 @@ class TestLibrary(unittest.TestCase):
     def setUp(self):
         # Creazione di un'istanza della biblioteca
         self.library = Library()
-        
-        # Aggiunta di libri alla biblioteca
-        self.library.add_book("B001", "The Great Gatsby", "F. Scott Fitzgerald")
-        self.library.add_book("B002", "1984", "George Orwell")
-        self.library.add_book("B003", "To Kill a Mockingbird", "Harper Lee")
+    
         
         # Registrazione di membri alla biblioteca
         self.library.register_member("M001", "Alice")
@@ -174,8 +178,15 @@ class TestLibrary(unittest.TestCase):
         self.member2 = self.library.members["M002"]
         
     def test_add_book(self):
-        self.book1.add
+        # Aggiunta di libri alla biblioteca
+        self.library.add_book("B001", "The Great Gatsby", "F. Scott Fitzgerald")
+        self.library.add_book("B002", "1984", "George Orwell")
+        self.library.add_book("B003", "To Kill a Mockingbird", "Harper Lee")
         
+        self.assertIn("The Great Gatsby", self.library.get_all_books(), "ERR")
+        self.assertIn("1984", self.library.get_all_books(), "ERR")
+        self.assertIn("To Kill a Mockingbird", self.library.get_all_books(), "ERR")
+
 """
 library = Library()
 
