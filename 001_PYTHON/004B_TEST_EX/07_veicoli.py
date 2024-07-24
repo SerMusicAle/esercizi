@@ -1,4 +1,4 @@
-    """
+"""
     In questo esercizio, creeremo una gerarchia di classi per rappresentare diversi tipi di veicoli.
  
 1. Classe Base: Veicolo
@@ -43,4 +43,34 @@ veicolo.descrivi_veicolo()  # Test del metodo descrivi_veicolo per Veicolo
 auto.descrivi_veicolo()  # Test del metodo descrivi_veicolo per Auto
 moto.descrivi_veicolo()  # Test del metodo descrivi_veicolo per Moto
     
-    """
+"""
+
+
+class Veicolo():
+#INIT
+    def __init__(self, marca:str, modello:str, anno:int):
+        self.marca = marca
+        self.modello = modello
+        self.anno = anno
+#BODY
+    def descrivi_veicolo(self):
+        print (f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}")
+        
+class Auto(Veicolo):
+#INIT
+    def __init__(self, marca: str, modello: str, anno: int, numero_porte:int):
+        super().__init__(marca, modello, anno)
+        self.numero_porte = numero_porte
+ 
+    def descrivi_veicolo(self):
+        print (f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Numero di porte: {self.numero_porte}")
+        
+
+class Moto(Veicolo):
+#INIT
+    def __init__(self, marca: str, modello: str, anno: int, tipo:str):
+        super().__init__(marca, modello, anno)
+        self.tipo = tipo
+        
+    def descrivi_veicolo(self): 
+        print (f"Marca: {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Tipo: {self.tipo}")

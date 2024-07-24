@@ -10,6 +10,15 @@ print(classifica_numeri([]))
     
     """
     
-    def classifica_numeri(lista: int) -> dict[str:list[int]]:
+def classifica_numeri(lista: int) -> dict[str,list[int]]:
     # cancella pass e scrivi il tuo codice
-    pass
+    pari:list[int] = []
+    dispari:list[int] = []
+    numeri:dict[str,list[int]] = {"pari":pari, "dispari": dispari}
+    for i in lista:
+        if i%2==0:
+            pari.append(i)
+        else:
+            dispari.append(i)
+    return numeri
+    

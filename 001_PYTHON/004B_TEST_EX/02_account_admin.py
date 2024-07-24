@@ -17,10 +17,10 @@ EX.02
     
     """
     
-def check_access(username: str, password: int, is_active: bool) -> str:
+def check_access(username: str, password: int, status: bool) -> str:
     conferma:str = "Accesso consentito" 
     negato: str = "Accesso negato"
-    if username == "admin" and password == 12345 and is_active = True:
+    if username == "admin" and password == "12345" and status== True:
         return conferma
     else:
         return negato

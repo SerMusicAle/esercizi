@@ -12,4 +12,8 @@ print(transform(-10))
 """
 def transform(x: int) -> int:
     # cancella pass e scrivi il tuo codice
-    pass
+    if x%2 ==0:
+        x//=2
+    else:
+        x = (x*3)-1
+    return x

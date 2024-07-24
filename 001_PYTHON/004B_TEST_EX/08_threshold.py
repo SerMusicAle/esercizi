@@ -10,7 +10,11 @@ print(sum_above_threshold([15, 5, 25], 20))
     """
     
     
-def sum_above_threshold(numbers: list[int], ...) -> int:
+def sum_above_threshold(numbers: list[int], trashold:int) -> int:
     # prima cancella ... e definisci parametro e tipo per il dato mancante
     # successivamente cancella pass e scrivi il tuo codice
-    pass
+    somma:int = 0
+    for i in numbers:
+        if i > trashold:
+            somma += i
+    return somma

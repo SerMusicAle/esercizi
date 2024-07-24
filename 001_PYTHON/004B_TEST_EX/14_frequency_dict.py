@@ -7,6 +7,13 @@ print(frequency_dict(['mela', 'banana', 'mela']))
 {'mela': 2, 'banana': 1}
 """
 
-def frequency_dict(elements: list) -> dict:
+def frequency_dict(elements: list[str]) -> dict[str,int]:
     # cancella pass e scrivi il tuo codice
-    pass
+    lista:dict[str,int] = {}
+    
+    for elemento in elements:
+        if not elemento in lista:
+            lista[elemento] = 1
+        else:
+            lista[elemento] +=1
+    return lista

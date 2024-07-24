@@ -1,4 +1,4 @@
-    """
+"""
     Scrivi una funzione che converta una lista di tuple (chiave, valore) in un dizionario. Se la chiave è già presente, aggiungi il valore alla lista di valori già associata alla chiave.
 For example:
 
@@ -9,7 +9,13 @@ print(lista_a_dizionario([]))
 {}
     
     """
-    
+
 def lista_a_dizionario(tuples: tuple) -> dict[str:list[int]]:
     # cancella pass e scrivi il tuo codie
-    pass
+    dizionario:dict [str,list[int]] = {}
+    for chiave, valore in tuples:
+        if chiave not in dizionario:     
+            dizionario[chiave] = [valore]
+        else:
+            dizionario[chiave].append(valore)
+    return dizionario
