@@ -293,9 +293,9 @@ class VideoRentalStore():
 
 
 
-For example:
+#For example:
 
-Test	Result
+#Test	Result
 # Creazione di un nuovo videonoleggio
 videonoleggio = VideoRentalStore()
 

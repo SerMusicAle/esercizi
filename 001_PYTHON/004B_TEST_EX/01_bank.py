@@ -41,13 +41,14 @@ class Bank():
             self.accounts[account_id]= Account(account_id)
             return Account(account_id)
         else:
+            #return (f"l'account esiste già")
             raise ValueError ("Account with this ID already exists")
         
     def deposit(self, account_id:str, amount:float):
         if account_id in self.accounts:
             self.accounts[account_id].deposit(amount)
         else:
-            raise ValueError(f"Account non esistente")      
+            raise ValueError(f"Account not found")      
         
     def get_balance(self, account_id:str):
         if account_id in self.accounts:

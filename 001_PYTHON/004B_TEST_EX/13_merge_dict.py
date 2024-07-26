@@ -15,12 +15,10 @@ def merge_dictionaries(dict1: dict[str, int], dict2: dict[str, int]) -> dict[str
     for chiave1, valore1 in dict1.items():
         dictunico[chiave1] = valore1
     
-    # Utilizza cicli for nidificati per aggiornare dictunico con le coppie chiave-valore di dict2
+    # Aggiorna dictunico con le coppie chiave-valore di dict2
     for chiave2, valore2 in dict2.items():
-        for chiave1, valore1 in dict1.items():
-            if chiave1 == chiave2:
-                dictunico[chiave1] = valore1 + valore2
-                break
+        if chiave2 in dictunico:
+            dictunico[chiave2] += valore2
         else:
             dictunico[chiave2] = valore2
     

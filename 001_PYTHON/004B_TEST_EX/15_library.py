@@ -78,85 +78,84 @@ For example:
 
     """
 from typing import Any
-class Book:
-    def __init__(self, book_id: str, title: str, author: str):
-        self.book_id: str = book_id
-        self.title: str = title
-        self.author: str = author
-        self.is_borrowed: bool = False
-
-    def borrow(self) -> None:
-        if not self.is_borrowed:
+class Book():
+#INIT
+    def __init__(self, book_id: str, title: str, author: str, is_borrowed: bool = False):
+        self.book_id = book_id
+        self.title = title
+        self.author = author
+        self.is_borrowed = is_borrowed
+#BODY
+    def borrow(self):
+        if self.is_borrowed == False:
             self.is_borrowed = True
         else:
             raise ValueError("Book is already borrowed")
-
-    def return_book(self) -> None:
+        
+    def return_book(self):
         if self.is_borrowed:
             self.is_borrowed = False
         else:
             raise ValueError(f"Il libro '{self.title}' non è attualmente in prestito.")
-
-class Member:
+        
+class Member():
+#INIT
     def __init__(self, member_id: str, name: str):
-        self.member_id: str = member_id
-        self.name: str = name
-        self.borrowed_books: list[str] = []
-
+        self.member_id = member_id
+        self.name = name
+        self.borrowed_books: list[Book] = []
+#BODY        
     def borrow_book(self, book: Book) -> None:
         if not book.is_borrowed:
             book.borrow()
             self.borrowed_books.append(book)
         else:
-            raise ValueError("Book is already borrowed")
-
-    def return_book(self, book: Book) -> None:
+            print (f"Book is already borrowed")
+            
+    def return_book(self, book: Book):
         if book in self.borrowed_books:
             book.return_book()
             self.borrowed_books.remove(book)
         else:
             raise ValueError("Book not borrowed by this member")
-
+               
 class Library:
-    def __init__(self):
-        self.books: dict[str,Book] = {}
-        self.members: dict[str,str] = {}
-
+#INIT
+    def __init__ (self):
+        self.books: dict[str, Book] = {}
+        self.members: dict[str, Member] = {}
+        
     def add_book(self, book_id: str, title: str, author: str) -> None:
         if book_id not in self.books:
-            self.books[book_id] = Book(book_id, title, author)
+            self.books[book_id] = Book (book_id, title, author)
         else:
             raise ValueError(f"Il libro con ID '{book_id}' esiste già nella biblioteca.")
-
-    def register_member(self, member_id: str, name: str) -> None:
+            
+    def register_member(self, member_id:str, name: str):
         if member_id not in self.members:
-            self.members[member_id] = Member(member_id, name)
+            self.members[member_id] = Member (member_id, name)
         else:
             raise ValueError(f"Il membro con ID '{member_id}' esiste già nella biblioteca.")
-
-    def borrow_book(self, member_id: str, book_id: str) -> None:
-        if member_id not in self.members:
-            raise ValueError("Member not found")
-        if book_id not in self.books:
-            raise ValueError("Book not found")
         
-        member:Member = self.members[member_id]
-        book = self.books[book_id]
-        member.borrow_book(book)
-
-    def return_book(self, member_id: str, book_id: str) -> None:
+    def borrow_book(self, member_id: str, book_id: str): 
+        if member_id in self.members:
+            if book_id in self.books:
+                self.members[member_id].borrow_book(self.books[book_id])
+            else:
+                raise ValueError (f"Book not found")
+        else:
+            raise ValueError("Member not found")
+        
+    def return_book(self, member_id: str, book_id: str):
         if member_id not in self.members:
             raise ValueError("Member not found")
         if book_id not in self.books:
             raise ValueError(f"Book with ID '{book_id}' not found")
-
-        member = self.members[member_id]
-        book = self.books[book_id]
-        member.return_book(book)
-
-    def get_borrowed_books(self, member_id: str) -> Any:
+        
+        self.members[member_id].return_book(self.books[book_id])
+    
+    def get_borrowed_books(self, member_id:str) -> list[str]:
         if member_id not in self.members:
             raise ValueError("Member not found")
-
-        member = self.members[member_id]
-        return [book.title for book in member.borrowed_books]
+        
+        return [book.title for book in self.members[member_id].borrowed_books]
