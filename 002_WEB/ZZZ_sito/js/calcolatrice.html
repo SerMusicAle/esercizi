@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice Scientifica</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .display {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .display input {
+            width: 100%;
+            border: none;
+            background: #333;
+            color: #fff;
+            font-size: 1.5em;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .btn {
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 1.2em;
+            padding: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #f1f1f1;
+        }
+
+        .btn.operator {
+            background: #f0ad4e;
+            color: white;
+        }
+
+        .btn.operator:hover {
+            background: #ec971f;
+        }
+
+        .btn.double {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="display" readonly>
+        </div>
+        <div class="buttons">
+            <button class="btn operator double" onclick="clearDisplay()">C</button>
+            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+            <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+            <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+
+            <button class="btn" onclick="appendToDisplay('.')">.</button>
+            <button class="btn" onclick="appendToDisplay('0')">0</button>
+            <button class="btn" onclick="appendToDisplay('1')">1</button>
+            <button class="btn" onclick="appendToDisplay('2')">2</button>
+            <button class="btn" onclick="appendToDisplay('3')">3</button>
+            <button class="btn" onclick="appendToDisplay('4')">4</button>
+            <button class="btn" onclick="appendToDisplay('5')">5</button>
+            <button class="btn" onclick="appendToDisplay('6')">6</button>
+            <button class="btn" onclick="appendToDisplay('7')">7</button>
+            <button class="btn" onclick="appendToDisplay('8')">8</button>
+            <button class="btn" onclick="appendToDisplay('9')">9</button>
+            <button class="btn" onclick="appendToDisplay('(')">(</button>
+            <button class="btn" onclick="appendToDisplay(')')">)</button>
+
+            <button class="btn operator double" onclick="calculateResult()">=</button>
+
+            <button class="btn" onclick="appendToDisplay('Math.sqrt(')">√</button>
+            <button class="btn" onclick="appendToDisplay('Math.pow(')">x²</button>
+            <button class="btn" onclick="appendToDisplay('Math.sin(')">sin</button>
+            <button class="btn" onclick="appendToDisplay('Math.cos(')">cos</button>
+            <button class="btn" onclick="appendToDisplay('Math.tan(')">tan</button>
+        </div>
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            const display = document.getElementById('display');
+            display.value = '';
+        }
+
+        function calculateResult() {
+            const display = document.getElementById('display');
+            try {
+                let result = eval(display.value);
+                // Replace Math functions with their JavaScript equivalents
+                result = result
+                    .toString()
+                    .replace(/Math.sqrt\(([^)]+)\)/g, 'Math.sqrt($1)')
+                    .replace(/Math.pow\(([^,]+),\s*([^)]+)\)/g, 'Math.pow($1, $2)')
+                    .replace(/Math.sin\(([^)]+)\)/g, 'Math.sin($1)')
+                    .replace(/Math.cos\(([^)]+)\)/g, 'Math.cos($1)')
+                    .replace(/Math.tan\(([^)]+)\)/g, 'Math.tan($1)');
+                display.value = result;
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice Scientifica</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .display {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .display input {
+            width: 100%;
+            border: none;
+            background: #333;
+            color: #fff;
+            font-size: 1.5em;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .btn {
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 1.2em;
+            padding: 20px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #f1f1f1;
+        }
+
+        .btn.operator {
+            background: #f0ad4e;
+            color: white;
+        }
+
+        .btn.operator:hover {
+            background: #ec971f;
+        }
+
+        .btn.double {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="display" readonly>
+        </div>
+        <div class="buttons">
+            
+            <button class="btn" onclick="aggiungiDisplay('.')">.</button>
+            <button class="btn" onclick="aggiungiDisplay('0')">0</button>
+            <button class="btn" onclick="aggiungiDisplay('1')">1</button>
+            <button class="btn" onclick="aggiungiDisplay('2')">2</button>
+            <button class="btn" onclick="aggiungiDisplay('3')">3</button>
+            <button class="btn" onclick="aggiungiDisplay('4')">4</button>
+            <button class="btn" onclick="aggiungiDisplay('5')">5</button>
+            <button class="btn" onclick="aggiungiDisplay('6')">6</button>
+            <button class="btn" onclick="aggiungiDisplay('7')">7</button>
+            <button class="btn" onclick="aggiungiDisplay('8')">8</button>
+            <button class="btn" onclick="aggiungiDisplay('9')">9</button>
+            <button class="btn" onclick="aggiungiDisplay('(')">(</button>
+            <button class="btn" onclick="aggiungiDisplay(')')">)</button>
+
+            <button class="btn operator" onclick="aggiungiDisplay('/')">/</button>
+            <button class="btn operator" onclick="aggiungiDisplay('*')">*</button>
+            <button class="btn operator" onclick="aggiungiDisplay('-')">-</button>
+            <button class="btn operator" onclick="aggiungiDisplay('+')">+</button>
+
+            <button class="btn" onclick="aggiungiDisplay('Math.sqrt(')">√</button>
+            <button class="btn" onclick="aggiungiDisplay('Math.pow(')">x²</button>
+            <button class="btn" onclick="aggiungiDisplay('Math.sin(')">sin</button>
+            <button class="btn" onclick="aggiungiDisplay('Math.cos(')">cos</button>
+            <button class="btn" onclick="aggiungiDisplay('Math.tan(')">tan</button>
+
+            <button class="btn operator double" onclick="cancellaDisplay()">C</button>
+
+            <button class="btn operator double" onclick="Risultato()">=</button>
+        </div>
+    </div>
+
+    <script>
+        var Stato = 0; //0 in immmissione base
+        var iPrimoNumero = 0;
+        var iSecondoNumero = 0;
+        var iOperatore = 0; //1 + 2 - 3 * 4 /
+
+        function aggiungiDisplay(value)
+        {
+            const display = document.getElementById('display');
+            display.value +=value;
+        }
+
+        function InserisciNumero(num)
+        {
+            console.log("gestisci numeri" + num)
+            switch Stato:
+            {
+                caso 0:
+                    if (document.gelElementById("schermo").value=="0")
+                        document.getElementById("schermo").value==num
+                    else
+                        document.getElementById("schermo").value+=num
+                break;
+                case 1:
+                    document.getElementById("schermo").value = num;
+                    iStato = 2;
+                    break;
+                case 2:
+                    document.getElementById("schermo").value = "0";
+                    document.getElementById("schermo").value = num;
+                
+            }
+        }
+
+        function InserisciOperatore (oper)
+        {
+            case 0:
+                break
+            case 1:
+                break
+            case 2:
+                break
+        }
+
+        function Risultato()
+        
+
+        -->

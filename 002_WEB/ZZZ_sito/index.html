@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facedog</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <center>
+        <div class="header">
+            <div class="logo">Facedog</div>
+            <div class="user-menu">
+                <!--SPOSTARE QUI IL MENU IN FUTURO SE SERVE-->
+            </div>
+        </div>
+        
+        <div class="top-menu">
+            <div class="icon"><i class="fa fa-home"> Home</i></div>
+            <div class="icon"><i class="fa fa-search"> Search</i></div>
+            <div class="icon"><i class="fa fa-bell"> Bell</i></div>
+            <div class="icon"><i class="fa fa-envelope"> Envelope</i></div>
+            <div class="icon"><i class="fa fa-user"> User</i></div>
+        </div>
+        
+        <div class="main-content">
+            <div class="container">
+                <form id="loginForm">
+                    <div class="row">
+                        <h2 style="text-align:center">Sign In</h2>
+                    </div>
+                    <div class="row">
+                        <div class="vl">
+                            <span class="vl-innertext">or</span>
+                        </div>
+
+                        <div class="col">
+                            <a href="#" class="fb btn">
+                                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                            </a>
+                            <a href="#" class="twitter btn">
+                                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                            </a>
+                            <a href="#" class="google btn">
+                                <i class="fa fa-google fa-fw"></i> Login with Google+
+                            </a>
+                        </div>
+
+                        <div class="col">
+                            <div class="hide-md-lg">
+                                <p>Or sign in manually:</p>
+                            </div>
+
+                            <input type="text" name="username" placeholder="Username" required minlength="3" maxlength="15" pattern="[a-zA-Z0-9]+" title="Solo lettere e numeri, minimo 3 e massimo 15 caratteri" autocomplete="username">
+                            <input type="text" name="name" placeholder="Name" required minlength="2" maxlength="30" pattern="[a-zA-Z]+" title="Solo lettere, minimo 2 e massimo 30 caratteri" autocomplete="given-name">
+                            <input type="text" name="surname" placeholder="Surname" required minlength="2" maxlength="30" pattern="[a-zA-Z]+" title="Solo lettere, minimo 2 e massimo 30 caratteri" autocomplete="family-name">
+                            <input type="date" name="data_nascita" placeholder="Data di nascita" required>
+                            <input type="text" name="indirizzo" placeholder="Indirizzo" required minlength="5" maxlength="100" pattern="[a-zA-Z0-9\s,]+" title="Lettere, numeri, virgole e spazi, minimo 5 e massimo 100 caratteri" autocomplete="address-line1">
+                            
+                            <input type="text" name="città" placeholder="Città" readonly onclick="openModal('cityModal')">
+                            <input type="text" name="provincia" placeholder="Provincia" readonly onclick="openModal('provinceModal')">
+
+                            <input type="text" name="cf" placeholder="Codice Fiscale" required pattern="[A-Z0-9]{16}" title="Codice Fiscale deve contenere 16 caratteri alfanumerici" maxlength="16">
+                            <input type="email" name="email" placeholder="E-mail" required autocomplete="email">
+                            <input type="password" name="password" placeholder="Password" required minlength="8" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Almeno 8 caratteri, con almeno una lettera maiuscola, una minuscola e un numero" autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <input type="button" value="Login" onclick="submitForm()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </center>
+
+    <!-- Modale per la selezione della città -->
+    <div id="cityModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('cityModal')">&times;</span>
+            <h2>Seleziona la Città</h2>
+            <ul class="modal-list">
+                <li onclick="selectCity('Rome')">Rome</li>
+                <li onclick="selectCity('Milan')">Milan</li>
+                <!-- Aggiungi altre città qui -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modale per la selezione della provincia -->
+    <div id="provinceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('provinceModal')">&times;</span>
+            <h2>Seleziona la Provincia</h2>
+            <ul class="modal-list">
+                <li onclick="selectProvince('Rome')">Rome</li>
+                <li onclick="selectProvince('Milan')">Milan</li>
+                <!-- Aggiungi altre province qui -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function selectCity(city) {
+            document.querySelector('input[name="città"]').value = city;
+            closeModal('cityModal');
+        }
+
+        function selectProvince(province) {
+            document.querySelector('input[name="provincia"]').value = province;
+            closeModal('provinceModal');
+        }
+
+        function submitForm() {
+            var username = document.querySelector('input[name="username"]').value;
+            var name = document.querySelector('input[name="name"]').value;
+            var surname = document.querySelector('input[name="surname"]').value;
+            var data_nascita = document.querySelector('input[name="data_nascita"]').value;
+            var indirizzo = document.querySelector('input[name="indirizzo"]').value;
+            var città = document.querySelector('input[name="città"]').value;
+            var provincia = document.querySelector('input[name="provincia"]').value;
+            var cf = document.querySelector('input[name="cf"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+
+            // Validazione delle città e province
+            var validCities = ["Rome", "Milan"]; // Aggiungi altre città qui
+            var validProvinces = ["Rome", "Milan"]; // Aggiungi altre province qui
+
+            if (!validCities.includes(città)) {
+                alert("Città non valida.");
+                return;
+            }
+
+            if (!validProvinces.includes(provincia)) {
+                alert("Provincia non valida.");
+                return;
+            }
+
+            // Qui puoi gestire i dati del modulo come necessario
+            console.log("Username: " + username);
+            console.log("Name: " + name);
+            console.log("Surname: " + surname);
+            console.log("Data di Nascita: " + data_nascita);
+            console.log("Indirizzo: " + indirizzo);
+            console.log("Città: " + città);
+            console.log("Provincia: " + provincia);
+            console.log("Codice Fiscale: " + cf);
+            console.log("E-mail: " + email);
+            console.log("Password: " + password);
+
+            // Esempio di invio dei dati al server
+            /*
+            fetch('your-server-endpoint', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                username: username,
+                password: password,
+                name: name,
+                surname: surname,
+                data_nascita: data_nascita,
+                indirizzo: indirizzo,
+                città: città,
+                provincia: provincia,
+                cf: cf,
+                email: email
+                })
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Reindirizza alla home page
+                    window.location.href = 'home.html';
+                })
+                .catch(error => console.error('Error:', error));
+            */
+
+            // Reindirizza alla home page dopo l'invio del modulo
+            window.location.href = 'pages/home.html';    
+        }
+    </script>
+</body>
+</html>
