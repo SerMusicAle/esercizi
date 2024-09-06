@@ -1,0 +1,11 @@
+PyPDF2
+textract
+
+
+
+
+
+cerca.Py
+requirements.txt
+install.sh
+
