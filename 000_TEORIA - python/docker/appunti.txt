@@ -1,0 +1,3 @@
+creo cartella myapp
+dentro creo myapp.py con una print 
+dentro cartella crea file che si chiami Dockerfile con i contenuti nel pdf
