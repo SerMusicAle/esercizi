@@ -6,11 +6,12 @@ api = Flask(__name__,
             template_folder='./templates'
             )
 
-utenti = [
-    ['mario', 'bros', 'mariobros@smanagement.it', 'password', '0'],
-    ['luigi', 'bros', 'luigibros@smanagement.it', 'password', '0'],
-    ['daisy', 'princess','daisyprincess@smanagement.it', 'password', '0'],
-    ['peach', 'slave', 'peachslave@smanagement.it', 'password', '0']
+utenti:list[list[str|None]] = [
+    ['mario', 'bros', 'mariobros@smanagement.it', 'password', 'OFFLINE'],
+    ['luigi', 'bros', 'luigibros@smanagement.it', 'password', 'OFFLINE'],
+    ['daisy', 'princess','daisyprincess@smanagement.it', 'password', 'OFFLINE'],
+    ['peach', 'slave', 'peachslave@smanagement.it', 'password', 'OFFLINE'],
+    ['alessandro', 'sereni', 'a.sereni@live.it', 'password', 'OFFLINE']
 ]
 
 @api.route('/', methods=['GET'])
@@ -25,8 +26,58 @@ def regok():
 def regko():
     return render_template('regko.html')
 
+@api.route('/registrazione', methods=['GET'])
+def registrati():
+    nome:str|None = request.args.get("name")
+    cognome = request.args.get("surname")
+    email = request.args.get("email")
+    password = request.args.get('password')
+    repassword = request.args.get('repassword')
+    Trovato = 0
+    if password == repassword:
+        for utente in utenti:
+            if utente[2]== email:
+                Trovato = 1
+        if Trovato == 0:
+            nuovo_utente:list[str|None] = []
+            nuovo_utente.append(nome)
+            nuovo_utente.append(cognome)
+            nuovo_utente.append(email)
+            nuovo_utente.append(password)
+            nuovo_utente.append("0")
+            utenti.append(nuovo_utente)
+            return render_template('regok.html')
+        
+    return render_template('regko.html')
 
-@api.route('/registrati', methods=['GET'])
+@api.route('/accesso', methods=['GET'])
+def accesso():
+    email = request.args.get("email")
+    password = request.args.get('password')
+    Trovato = 0
+    for utente in utenti:
+        if utente[2] == email and utente[3] == password:
+            Trovato = 1
+            utente[4] = "ONLINE"
+            return render_template('regok.html')
+
+"""
+@api.route('/accesso', methods=['GET'])
+def accesso():
+    email = request.args.get("email")
+    password = request.args.get('password')
+    for utente in utenti:
+        if email == utente[2] and password == utente[3]:
+            return render_template('home.html')
+        else:
+            return render_template('regko.html')
+
+"""
+api.run(host="0.0.0.0",port=8085)
+
+
+"""
+@api.route('/registrazione', methods=['GET'])
 def registrati():
     nome = request.args.get("name")
     cognome = request.args.get("surname")
@@ -35,19 +86,15 @@ def registrati():
     repassword = request.args.get('repassword')
     if password == repassword:
         password = request.args.get("password")
+        for utente in utenti:
+            if email != utente[2] : 
+                new_user=[]
+                new_user.append(nome)
+                #= [nome, cognome, email, password, "0"]
+                utenti.append(new_user)
+                return render_template('regok.html')
+            else:
+                return render_template('regko.html')
     else:
         return render_template('regko.html')
-
-    for utente in utenti:
-        if email == utente[2] :
-            return render_template('home.html')    
-
-    new:list[str] = [nome, cognome, email, password, "0"]
-    utenti.append(new)
-    return render_template('regko.html')
-
-
-
-api.run(host="0.0.0.0",port=8085)
-
-
+"""
