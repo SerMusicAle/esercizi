@@ -1,3 +1,5 @@
+--DOMAINS
+
 create type strutturato as enum
 (
     ’Ricercatore’, 
@@ -50,6 +52,7 @@ create domain Denaro as real check
 );
 
 
+--SCHEMA AND TABLES
 CREATE SCHEMA accademia
     CREATE TABLE persona 
     (
@@ -69,6 +72,7 @@ CREATE SCHEMA accademia
         budget Denaro not null, 
         constraint Progetto_inizio_fine check (inizio < fine)
     );
+    
     create table wp 
     (
         progetto PosInteger,

@@ -1,35 +1,114 @@
---voli sopra le 3 ore
+--1. voli(codice, nome) sopra le 3 ore
 SELECT codice
 FROM Volo
-WHERE durataMinuti > 180
+WHERE durataMinuti > 180;
 
---compagnie che hanno voli che superano le 3 ore?
+--2. compagnie che hanno voli che superano le 3 ore?
 SELECT DISTINCT comp
 FROM Volo
-WHERE durataMinuti > 180
+WHERE durataMinuti > 180;
+
+--3.  voli (codice e nome della compagnia) che partono da ‘CIA’
+SELECT codice, comp
+FROM ArrPart
+WHERE partenza = 'CIA';
+
+--4.  compagnie con voli che arrivano da ‘FCO’
+SELECT DISTINCT comp
+FROM ArrPart
+WHERE arrivo = 'FCO';
+
+--5.  voli (codice e nome della compagnia) che partono dall’aeroporto ‘FCO’ e arrivano all’aeroporto ‘JFK’ ?
+SELECT codice, comp
+FROM ArrPart
+WHERE partenza = 'FCO'
+    AND arrivo = 'JFK';
+
+--6. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’ e atterrano all’aeroporto ‘JFK’ ?
+SELECT DISTINCT comp
+FROM ArrPart
+WHERE partenza = 'FCO'
+    AND arrivo = 'JFK';
+
+--7. Quali sono i nomi delle compagnie che hanno voli diretti dalla città di ‘Roma’ alla città di ‘New York’ ?
+SELECT DISTINCT ap.codice, ap.comp, ap, partenza, part.nome, lpart.citta
+FROM ArrPart ap, aereoporto part, LuogoAeroporto lpart
+WHERE ap.partenza = part.codice
+and ap.arrivo = larr.aereoporto
+and part.codice = lpart.aereoporto;
 
 
-3. Quali sono i voli (codice e nome della compagnia) che partono dall’aeroporto con
-codice ‘CIA’ ?
-4. Quali sono le compagnie che hanno voli che arrivano all’aeroporto con codice
-‘FCO’ ?
-5. Quali sono i voli (codice e nome della compagnia) che partono dall’aeroporto ‘FCO’
-e arrivano all’aeroporto ‘JFK’ ?
-6. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’ e atter-
-rano all’aeroporto ‘JFK’ ?
-7. Quali sono i nomi delle compagnie che hanno voli diretti dalla città di ‘Roma’ alla
-città di ‘New York’ ?
-8. Quali sono gli aeroporti (con codice IATA, nome e luogo) nei quali partono voli
-della compagnia di nome ‘MagicFly’ ?
-9. Quali sono i voli che partono da un qualunque aeroporto della città di ‘Roma’ e
-atterrano ad un qualunque aeroporto della città di ‘New York’ ? Restituire: codice
-del volo, nome della compagnia, e aeroporti di partenza e arrivo.
-10. Quali sono i possibili piani di volo con esattamente un cambio (utilizzando solo
-voli della stessa compagnia) da un qualunque aeroporto della città di ‘Roma’ ad un
-qualunque aeroporto della città di ‘New York’ ? Restituire: nome della compagnia,
-codici dei voli, e aeroporti di partenza, scalo e arrivo.
-11. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’, atter-
-rano all’aeroporto ‘JFK’, e di cui si conosce l’anno di fondazione?
+--8. Quali sono gli aeroporti (con codice IATA, nome e luogo) nei quali partono voli
+    -- della compagnia di nome ‘MagicFly’ ?
+
+SELECT DISTINCT nome, a.codice, citta, nazione
+FROM ArrPart, LuogoAeroporto, aereoporto A
+WHERE partenza = aereoporto
+AND comp = 'MagicFly' and a.codice = arrpart.partenza;
+
+
+--9. Quali sono i voli che partono da un qualunque aeroporto della città di ‘Roma’ 
+    -- e atterrano ad un qualunque aeroporto della città di ‘New York’ ? 
+    -- Restituire: codice del volo, nome della compagnia, e aeroporti di partenza e arrivo.
+SELECT DISTINCT ap.codice, ap.comp, ap.partenza, ap.arrivo
+FROM ArrPart ap, Luogoaereoporto rpart, LuogoAeroporto lpart
+WHERE ap.partenza = larr.aereoporto
+AND ap.arrivo = larr.aereoporto
+AND lpart, citta = 'Roma'
+AND larr, citta = 'New York';
+
+--10. Quali sono i possibili piani di volo con esattamente un cambio 
+    -- (utilizzando solo voli della stessa compagnia) da un qualunque aeroporto
+    -- della città di ‘Roma’ ad un qualunque aeroporto della città di ‘New York’ ? 
+    -- Restituire: nome della compagnia, codici dei voli, e aeroporti di partenza, 
+    -- scalo e arrivo.
+SELECT v1.comp as compagnia
+    v1.codice as volo1
+    v2.codice as volo2
+    v1.partenza as partenza
+    v1.arrivo as scalo
+    v1.arrivo as arrivo
+
+FROM arrpart v1, arrpart v2, Luogoaereoporto lpart, Luogoaereoporto larr
+WHERE v1.arrivo = v2.partenza
+AND v1.comp = v2.comp
+AND v1.partenza = lpart.aereoporto 
+AND v1.partenza = larr.aereoporto 
+AND lpart.citta = 'Roma' 
+AND larr.citta = 'New York' 
+
+
+--11. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’, 
+    -- atterrano all’aeroporto ‘JFK’, e di cui si conosce l’anno di fondazione?
+SELECT DISTINCT comp 
+FROM arrpart up, compagnia c 
+WHERE comp = c.nome
+AND ap.partenza = 'FCO' 
+AND ap.arrivo ='JFK' 
+AND annodondaz is NOT NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 SELECT Volo.codice, ArrPart.arrivo, ArrPart.partenza, AeroportoArrivo.nome AS nome_arrivo, AeroportoPartenza.nome AS nome_partenza
