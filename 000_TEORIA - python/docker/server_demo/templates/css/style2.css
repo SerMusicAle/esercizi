@@ -1,0 +1,128 @@
+/*MENU*/
+ul 
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+}
+li
+{
+    display:inline-block;
+    padding-right: 1%;
+    margin-left: 1%;
+    font-size: 30px;
+    border-right: 1px solid black;
+    position:relative
+}
+li:not(:last-child)::after
+{
+    border-right: none;
+    margin-left: 1%;
+}
+li:not(:first-child)::before
+{
+    margin-right: 1%;
+}
+li:hover ul
+{
+    display:block;
+}
+li ul
+{
+    display:none;
+    position:absolute;
+    top: 100%;
+    left: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+}
+li ul li 
+{
+    display:block;
+    padding: 10px;
+    border-bottom: 1px;
+}
+li ul li a {
+    padding: 10px;
+    border-right: none; /* Rimuove il bordo destro dagli elementi del dropdown */
+    white-space: nowrap; /* Impedisce la rottura del testo in più righe */
+}
+
+/*TABELLE*/
+table {
+    width: 100%; /* Imposta la larghezza della tabella */
+    border-collapse: collapse; /* Rimuove lo spazio tra i bordi delle celle */
+    margin-bottom: 50px
+}
+th.tabellacane
+{
+    border-width: 2px;
+    background-color: rgb(178, 241, 178)
+}
+th.tabellagatto
+{
+    border-width: 2px;
+    background-color: rgb(247, 189, 239);
+}
+th, td {
+    text-align: center; /* Centra il testo orizzontalmente */
+    vertical-align: middle; /* Centra il testo verticalmente */
+    border: 1px solid black; /* Aggiunge un bordo alle celle */
+    padding: 10px; /* Aggiunge padding alle celle */
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3b5998;
+    color: white;
+}
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.top-menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+}
+.top-menu .icon {
+    margin: 0 15px;
+    cursor: pointer;
+}
+.main-content {
+    display: flex;
+}
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
+}
+.posts {
+    flex: 1;
+    padding: 15px;
+}
+.icon {
+    width: 10%;
+    border-right: 1px solid black;
+    
+}
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

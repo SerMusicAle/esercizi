@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request
 
 api = Flask(__name__, 
@@ -6,17 +7,19 @@ api = Flask(__name__,
             template_folder='./templates'
             )
 
-utenti:list[list[str|None]] = [
-    ['mario', 'bros', 'mariobros@smanagement.it', 'password', '0'],
-    ['luigi', 'bros', 'luigibros@smanagement.it', 'password', '0'],
-    ['daisy', 'princess','daisyprincess@smanagement.it', 'password', '0'],
-    ['peach', 'slave', 'peachslave@smanagement.it', 'password', '0'],
-    ['alessandro', 'sereni', 'a.sereni@live.it', 'password', '0']
-]
+#utenti
+def load_utenti():
+    with open('utenti.json', 'r') as f:
+        return json.load(f)
 
+def save_utenti(utenti):
+    with open('utenti.json', 'w') as f:
+        json.dump(utenti, f)
+
+#pagine
 @api.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('pages/index.html')
 
 @api.route('/regok', methods=['GET'])
 def regok():
@@ -26,29 +29,33 @@ def regok():
 def regko():
     return render_template('regko.html')
 
-@api.route('/registrazione', methods=['GET'])
+@api.route('/registrazione', methods=['GET'])  
 
 #SIGNIN
 def registrati():
+    utenti = load_utenti()
     nome:str|None = request.args.get("name")
     cognome = request.args.get("surname")
     email = request.args.get("email")
     password = request.args.get('password')
     repassword = request.args.get('repassword')
-    Trovato = 0
+
     if password == repassword:
         for utente in utenti:
-            if utente[2]== email:
-                Trovato = 1
-        if Trovato == 0:
-            nuovo_utente:list[str|None] = []
-            nuovo_utente.append(nome)
-            nuovo_utente.append(cognome)
-            nuovo_utente.append(email)
-            nuovo_utente.append(password)
-            nuovo_utente.append("0")
-            utenti.append(nuovo_utente)
-            return render_template('regok.html')
+            if utente["email"]== email:
+                return render_template('regko.html')  # Utente già registrato
+                break
+            
+        nuovo_utente:list[str] = {
+            "nome": nome,
+            "cognome": cognome,
+            "email": email,
+            "password": password,
+            "logged": "0"
+        }
+        utenti.append(nuovo_utente)
+        save_utenti(utenti)  # Salva nel file JSON
+        return render_template('regok.html')
         
     return render_template('regko.html')
 
@@ -68,7 +75,7 @@ def login():
                 return render_template('regko.html')
             else:
                 utente[4] = "1"
-                return render_template('regok.html')
+                return render_template('pages/home.html')
     print("Utente non trovato")
     return render_template('regko.html')
         

@@ -1,0 +1,7 @@
+
+[
+    {"nome": "mario", "cognome": "bros", "email": "mariobros@smanagement.it", "password": "password", "logged": "0"},
+    {"nome": "luigi", "cognome": "bros", "email": "luigibros@smanagement.it", "password": "password", "logged": "0"},
+    {"nome": "daisy", "cognome": "princess", "email": "daisyprincess@smanagement.it", "password": "password", "logged": "0"},
+    {"nome": "peach", "cognome": "slave", "email": "peachslave@smanagement.it", "password": "password", "logged": "0"}
+]
