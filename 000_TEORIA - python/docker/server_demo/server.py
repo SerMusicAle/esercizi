@@ -7,11 +7,11 @@ api = Flask(__name__,
             )
 
 utenti:list[list[str|None]] = [
-    ['mario', 'bros', 'mariobros@smanagement.it', 'password', 'OFFLINE'],
-    ['luigi', 'bros', 'luigibros@smanagement.it', 'password', 'OFFLINE'],
-    ['daisy', 'princess','daisyprincess@smanagement.it', 'password', 'OFFLINE'],
-    ['peach', 'slave', 'peachslave@smanagement.it', 'password', 'OFFLINE'],
-    ['alessandro', 'sereni', 'a.sereni@live.it', 'password', 'OFFLINE']
+    ['mario', 'bros', 'mariobros@smanagement.it', 'password', '0'],
+    ['luigi', 'bros', 'luigibros@smanagement.it', 'password', '0'],
+    ['daisy', 'princess','daisyprincess@smanagement.it', 'password', '0'],
+    ['peach', 'slave', 'peachslave@smanagement.it', 'password', '0'],
+    ['alessandro', 'sereni', 'a.sereni@live.it', 'password', '0']
 ]
 
 @api.route('/', methods=['GET'])
@@ -27,6 +27,8 @@ def regko():
     return render_template('regko.html')
 
 @api.route('/registrazione', methods=['GET'])
+
+#SIGNIN
 def registrati():
     nome:str|None = request.args.get("name")
     cognome = request.args.get("surname")
@@ -50,30 +52,41 @@ def registrati():
         
     return render_template('regko.html')
 
-@api.route('/accesso', methods=['GET'])
-def accesso():
+#LOGIN
+@api.route('/login', methods=['GET'])
+def login():
     email = request.args.get("email")
     password = request.args.get('password')
-    Trovato = 0
+    
     for utente in utenti:
+#verifica corrispondenza
         if utente[2] == email and utente[3] == password:
-            Trovato = 1
-            utente[4] = "ONLINE"
-            return render_template('regok.html')
 
-"""
-@api.route('/accesso', methods=['GET'])
-def accesso():
+#verifica log precedente            
+            if utente[4] == '1':
+                print("L'utente è già loggato")
+                return render_template('regko.html')
+            else:
+                utente[4] = "1"
+                return render_template('regok.html')
+    print("Utente non trovato")
+    return render_template('regko.html')
+        
+
+#LOGOUT
+@api.route('/logout', methods=['GET'])
+def logout():
     email = request.args.get("email")
-    password = request.args.get('password')
     for utente in utenti:
-        if email == utente[2] and password == utente[3]:
-            return render_template('home.html')
-        else:
-            return render_template('regko.html')
+        if utente[2] == email:
+            utente[4] = '0'
+            return render_template('regok.html')
+    return render_template('regko.html')
 
-"""
+#api
 api.run(host="0.0.0.0",port=8085)
+
+#TIMEOUT
 
 
 """
