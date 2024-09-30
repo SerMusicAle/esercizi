@@ -34,8 +34,8 @@ WHERE partenza = 'FCO'
 SELECT DISTINCT ap.codice, ap.comp, ap, partenza, part.nome, lpart.citta
 FROM ArrPart ap, aereoporto part, LuogoAeroporto lpart
 WHERE ap.partenza = part.codice
-and ap.arrivo = larr.aereoporto
-and part.codice = lpart.aereoporto;
+AND ap.arrivo = larr.aereoporto
+AND part.codice = lpart.aereoporto;
 
 
 --8. Quali sono gli aeroporti (con codice IATA, nome e luogo) nei quali partono voli
@@ -45,6 +45,16 @@ SELECT DISTINCT nome, a.codice, citta, nazione
 FROM ArrPart, LuogoAeroporto, aereoporto A
 WHERE partenza = aereoporto
 AND comp = 'MagicFly' and a.codice = arrpart.partenza;
+
+--8. Prof. Mancini
+SELECT 
+    a.codice as codice IATA,
+    , a.nome as nome
+    la.citta as cittala.naziopne as nazione
+FROM ArrPart ap, Aeroporto a, LuogoAeroporto larr
+WHERE ap.partenza = a.codice
+    AND ap.partenza = la.aeroporto
+    AND ap.comp = 'MagicFly'
 
 
 --9. Quali sono i voli che partono da un qualunque aeroporto della città di ‘Roma’ 
@@ -57,25 +67,41 @@ AND ap.arrivo = larr.aereoporto
 AND lpart, citta = 'Roma'
 AND larr, citta = 'New York';
 
+--9. Prof. Mancini
+SELECT a.codice as codice
+    ap.comp as compagnia
+    aeroop_p.codice as partenza_codice
+    aerop_p.nome as partenza_nome
+    aerop_arr.codice as arrivo_codice
+    aerop_arr.nome as arrivo_nome
+FROM ArrPart ap
+    LuogoAeroporto lap,
+    LuoboAeroporto laa,
+    Aeroporto aerop_p,
+    Aeroporto aerop:arr
+WHERE ap.partenza = lap.aeroporto
+    AND lap.citta = citta
+    --da finire guardando il video
+
 --10. Quali sono i possibili piani di volo con esattamente un cambio 
     -- (utilizzando solo voli della stessa compagnia) da un qualunque aeroporto
     -- della città di ‘Roma’ ad un qualunque aeroporto della città di ‘New York’ ? 
     -- Restituire: nome della compagnia, codici dei voli, e aeroporti di partenza, 
     -- scalo e arrivo.
-SELECT v1.comp as compagnia
-    v1.codice as volo1
-    v2.codice as volo2
-    v1.partenza as partenza
-    v1.arrivo as scalo
-    v1.arrivo as arrivo
+SELECT  v1.comp as compagnia
+        v1.codice as volo1
+        v2.codice as volo2
+        v1.partenza as partenza
+        v1.arrivo as scalo
+        v1.arrivo as arrivo
 
 FROM arrpart v1, arrpart v2, Luogoaereoporto lpart, Luogoaereoporto larr
 WHERE v1.arrivo = v2.partenza
-AND v1.comp = v2.comp
-AND v1.partenza = lpart.aereoporto 
-AND v1.partenza = larr.aereoporto 
-AND lpart.citta = 'Roma' 
-AND larr.citta = 'New York' 
+    AND v1.comp = v2.comp
+    AND v1.partenza = lpart.aereoporto 
+    AND v1.partenza = larr.aereoporto 
+    AND lpart.citta = 'Roma' 
+    AND larr.citta = 'New York' 
 
 
 --11. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’, 
