@@ -21,21 +21,21 @@ WHERE arrivo = 'FCO';
 --5.  voli (codice e nome della compagnia) che partono dall’aeroporto ‘FCO’ e arrivano all’aeroporto ‘JFK’ ?
 SELECT codice, comp
 FROM ArrPart
-WHERE partenza = 'FCO'
+WHERE   partenza = 'FCO'
     AND arrivo = 'JFK';
 
 --6. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’ e atterrano all’aeroporto ‘JFK’ ?
 SELECT DISTINCT comp
 FROM ArrPart
-WHERE partenza = 'FCO'
+WHERE   partenza = 'FCO'
     AND arrivo = 'JFK';
 
 --7. Quali sono i nomi delle compagnie che hanno voli diretti dalla città di ‘Roma’ alla città di ‘New York’ ?
 SELECT DISTINCT ap.codice, ap.comp, ap, partenza, part.nome, lpart.citta
 FROM ArrPart ap, aereoporto part, LuogoAeroporto lpart
-WHERE ap.partenza = part.codice
-AND ap.arrivo = larr.aereoporto
-AND part.codice = lpart.aereoporto;
+WHERE   p.partenza = part.codice
+    AND ap.arrivo = larr.aereoporto
+    AND part.codice = lpart.aereoporto;
 
 
 --8. Quali sono gli aeroporti (con codice IATA, nome e luogo) nei quali partono voli
@@ -47,12 +47,11 @@ WHERE partenza = aereoporto
 AND comp = 'MagicFly' and a.codice = arrpart.partenza;
 
 --8. Prof. Mancini
-SELECT 
-    a.codice as codice IATA,
-    , a.nome as nome
-    la.citta as cittala.naziopne as nazione
+SELECT a.codice as codice IATA,
+       a.nome as nome
+       la.citta as cittala.naziopne as nazione
 FROM ArrPart ap, Aeroporto a, LuogoAeroporto larr
-WHERE ap.partenza = a.codice
+WHERE   ap.partenza = a.codice
     AND ap.partenza = la.aeroporto
     AND ap.comp = 'MagicFly'
 
@@ -62,24 +61,24 @@ WHERE ap.partenza = a.codice
     -- Restituire: codice del volo, nome della compagnia, e aeroporti di partenza e arrivo.
 SELECT DISTINCT ap.codice, ap.comp, ap.partenza, ap.arrivo
 FROM ArrPart ap, Luogoaereoporto rpart, LuogoAeroporto lpart
-WHERE ap.partenza = larr.aereoporto
-AND ap.arrivo = larr.aereoporto
-AND lpart, citta = 'Roma'
-AND larr, citta = 'New York';
+WHERE   ap.partenza = larr.aereoporto
+    AND ap.arrivo = larr.aereoporto
+    AND lpart, citta = 'Roma'
+    AND larr, citta = 'New York';
 
 --9. Prof. Mancini
 SELECT a.codice as codice
-    ap.comp as compagnia
-    aeroop_p.codice as partenza_codice
-    aerop_p.nome as partenza_nome
-    aerop_arr.codice as arrivo_codice
-    aerop_arr.nome as arrivo_nome
+       ap.comp as compagnia
+       aeroop_p.codice as partenza_codice
+       aerop_p.nome as partenza_nome
+       aerop_arr.codice as arrivo_codice
+       aerop_arr.nome as arrivo_nome
 FROM ArrPart ap
-    LuogoAeroporto lap,
-    LuoboAeroporto laa,
-    Aeroporto aerop_p,
-    Aeroporto aerop:arr
-WHERE ap.partenza = lap.aeroporto
+     LuogoAeroporto lap,
+     LuoboAeroporto laa,
+     Aeroporto aerop_p,
+     Aeroporto aerop:arr
+WHERE   ap.partenza = lap.aeroporto
     AND lap.citta = citta
     --da finire guardando il video
 
@@ -96,7 +95,7 @@ SELECT  v1.comp as compagnia
         v1.arrivo as arrivo
 
 FROM arrpart v1, arrpart v2, Luogoaereoporto lpart, Luogoaereoporto larr
-WHERE v1.arrivo = v2.partenza
+WHERE   v1.arrivo = v2.partenza
     AND v1.comp = v2.comp
     AND v1.partenza = lpart.aereoporto 
     AND v1.partenza = larr.aereoporto 
@@ -108,10 +107,10 @@ WHERE v1.arrivo = v2.partenza
     -- atterrano all’aeroporto ‘JFK’, e di cui si conosce l’anno di fondazione?
 SELECT DISTINCT comp 
 FROM arrpart up, compagnia c 
-WHERE comp = c.nome
-AND ap.partenza = 'FCO' 
-AND ap.arrivo ='JFK' 
-AND annodondaz is NOT NULL;
+WHERE   comp = c.nome
+    AND ap.partenza = 'FCO' 
+    AND ap.arrivo ='JFK' 
+    AND annodondaz is NOT NULL;
 
 
 
