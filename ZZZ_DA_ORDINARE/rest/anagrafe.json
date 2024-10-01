@@ -2,25 +2,25 @@
     "dctnst34b56h501u": {
         "nome": "mario",
         "cognome": "de martino",
-        "data nascita": "21/05/1980",
+        "dataNascita": "21/05/1980",  // Corretto il nome della chiave
         "codiceFiscale": "dctnst34b56h501u"
     },
     "dctnst34b56h501a": {
         "nome": "gianni",
         "cognome": "de martino",
-        "data nascita": "21/05/1980",
-        "codiceFiscale": "dctnst34b56h501u"
+        "dataNascita": "21/05/1980",  // Corretto il nome della chiave
+        "codiceFiscale": "dctnst34b56h501a"  // Corretto il codice fiscale
     },
     "dctnst34b56h503e": {
         "nome": "maria",
         "cognome": "de martino",
-        "data nascita": "21/05/1980",
-        "codice fiscale": "dctnst34b56h501u"
+        "dataNascita": "21/05/1980",  // Corretto il nome della chiave
+        "codiceFiscale": "dctnst34b56h503e"  // Corretto il codice fiscale
     },
     "srn": {
         "nome": "ale",
         "cognome": "ser",
-        "dataNascita": "14",
+        "dataNascita": "14",  // Corretto il nome della chiave
         "codiceFiscale": "srn"
     }
 }
