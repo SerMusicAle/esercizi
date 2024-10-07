@@ -64,5 +64,22 @@ def GetCittadino():
         jResponse = {"Error": "002", "Msg": "codice fiscale non trovato"}  # Risposta di errore se il codice fiscale non è trovato.
         return json.dumps(jResponse), 404  # Restituisce la risposta con codice di stato 404 (Not Found).
 
+@api.route('/read_cittadion/<codice_fiscale>', methods=['GET'])
+def read_cittadino(codice_fiscale)
+    cittadino = cittadini.get(codice_fiscale)
+    if cittadion:
+        return jsonify({"Esito":"200","Msg": "Cittadino trovato", "Dati": cittadino}), 200
+    else:
+        return jsonify({"Esito":"404", "Msg": "Cittadino no trovato"}), 404
+    
+@api.route('/update_cittadino',methods=['POST'])
+def update_cittadino():
+    content_type = request.headers.get('Content-Type')
+    if content_type == 'application/json':
+        
+        jsonReq = request.jsoncodice_fiscale = jsonReq.get ('codFiscale')
+        if codice_fiscale in cittadini:
+            cittadini[codice_fiscale] = jsonReq.get
+
 # AVVIO DELL'APPLICAZIONE
 api.run(host="127.0.0.1", port=8080)  # Avvia il server Flask sull'indirizzo locale (localhost) e sulla porta 8080.

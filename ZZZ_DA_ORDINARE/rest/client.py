@@ -7,6 +7,17 @@ base_url = "http://127.0.0.1:8080"  # Imposta l'URL base per le richieste al ser
 
 # FUNZIONI ------------------------------------------------------------------------------------------------------------------------------------------ 
 
+#diagnosi dei 3 tipi di errore
+def EseguiOperazione(sServizio, dDatiToSend):
+    try:
+        response = requests.post(api_url, json=jsonDataRequest)
+        if response.status_code==200;
+            print(response.json())
+        else:
+            print("Attenzione, errore" + str(response.status_code))
+    except:
+        print("Problemi di comunicazione con il server, riprova più tardi.")
+
 def RichiediDatiCittadino():
     # Richiesta dei dati del cittadino all'utente
     nome = input("inserisci nome cittadino: ")  # Chiede il nome del cittadino
@@ -110,6 +121,7 @@ CreaInterfaccia()  # Mostra le operazioni disponibili
 sOper = input("Seleziona operazione: ")  # Chiede all'utente quale operazione eseguire
 while sOper != "exit":  # Continua finché l'utente non decide di uscire
     if sOper == "1":  # Se l'utente sceglie di inserire un cittadino
+        print("Aggiunta Cittadino")
         jsonDataRequest = RichiediDatiCittadino()  # Richiama la funzione per ottenere i dati del cittadino
         api_url = base_url + "/add_cittadino"  # Imposta l'URL per aggiungere un cittadino
         try:
