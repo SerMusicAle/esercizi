@@ -71,7 +71,6 @@ public class Computer {
 		this.anno = anno;
 	}
 	
-	public 
 	
 }
 /*
