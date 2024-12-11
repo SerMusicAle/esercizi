@@ -1,2 +1,0 @@
-#puoi eseguire il test da una directory superiore con un comando come:
-python -m unittest tests.test_calculations
